@@ -9,12 +9,14 @@ import "./App.css";
 
 function App() {
   return (
-    <>
-      <Header />
-      <Navigation />
-      <Main />
-      <Footer />
-    </>
+    <div classNae="app__wrapper">
+      <div className="full__background">
+        <Header />
+        <Navigation />
+        <Main />
+        <Footer />
+      </div>
+    </div>
   );
 }
 

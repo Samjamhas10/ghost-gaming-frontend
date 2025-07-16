@@ -1,11 +1,45 @@
+.nav__bar {
+  background-image: url(../../assets/nav-bar.png);
+  width: 125px;
+  height: 1024px;
+}
+
 .nav__list {
   list-style-type: none;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  gap: 20px;
   cursor: pointer;
+}
+
+.nav__item {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 30px;
+  height: 30px;
 }
 
 .nav__home {
   background-image: url(../../assets/home-icon.png);
-  background-color: red;
-  background-repeat: no-repeat;
 }
 
+.nav__user {
+  background-image: url(../../assets/user-icon.svg);
+}
+
+.nav__top-games {
+  background-image: url(../../assets/trophy-icon.svg);
+}
+
+.nav__reviews {
+  background-image: url(../../assets/star-icon.png);
+}
+
+.nav__library {
+  background-image: url(../../assets/library-icon.svg);
+}

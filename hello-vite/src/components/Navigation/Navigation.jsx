@@ -1,18 +1,44 @@
-import homeIcon from "../../assets/home-icon.png";
 import "./Navigation.css";
 
 function Navigation() {
   return (
-    <Navigation className="nav">
-      <div>
+    <div>
+      <div className="nav__bar">
         <ul className="nav__list">
-          <li className="nav__home">Home</li>
-          <li className="nav__reviews">Reviews</li>
-          <li className="nav__top-games">Top Games</li>
-          <li className="nav__collection">Collection</li>
+          <li>
+            <a href="/" className="nav__item nav__home" aria-label="Home"></a>
+          </li>
+          <li>
+            <a
+              href="/user"
+              className="nav__item nav__user"
+              aria-label="User"
+            ></a>
+          </li>
+          <li>
+            <a
+              href="/top-games"
+              className="nav__item nav__top-games"
+              aria-label="Top Games"
+            ></a>
+          </li>
+          <li>
+            <a
+              href="/reviews"
+              className=" nav__item nav__reviews"
+              aria-label="Reviews"
+            ></a>
+          </li>
+          <li>
+            <a
+              href="/library"
+              className="nav__item nav__library"
+              aria-label="Library"
+            ></a>
+          </li>
         </ul>
       </div>
-    </Navigation>
+    </div>
   );
 }
 

@@ -1,0 +1,6 @@
+.search__container {
+  background-image: url(../../assets/search-bar.png);
+  width: 473px;
+  height: 50px;
+  cursor: pointer;
+}

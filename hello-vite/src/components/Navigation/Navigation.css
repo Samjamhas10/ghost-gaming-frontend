@@ -2,6 +2,9 @@
   background-image: url(../../assets/nav-bar.png);
   width: 125px;
   height: 1024px;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
 .nav__list {
@@ -11,9 +14,8 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  justify-items: flex-start;
-  gap: 20px;
-  cursor: pointer;
+  align-items: center;
+  gap: 30px;
 }
 
 .nav__item {
@@ -22,6 +24,8 @@
   background-size: contain;
   width: 30px;
   height: 30px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .nav__home {
@@ -38,8 +42,4 @@
 
 .nav__reviews {
   background-image: url(../../assets/star-icon.png);
-}
-
-.nav__library {
-  background-image: url(../../assets/library-icon.svg);
 }

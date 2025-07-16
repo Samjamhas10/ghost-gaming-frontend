@@ -1,0 +1,44 @@
+.library {
+  color: #ffffff;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  margin-bottom: 20px;
+}
+
+.library__sidebar {
+  width: 334px;
+  height: 825px;
+  position: fixed;
+  right: 0;
+}
+
+.library__games {
+  width: 64px;
+  height: 64px;
+  display: inline-block;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.library__minecraft {
+  background-image: url(../../assets/Minecraft.png);
+}
+
+.library__cod {
+  background-image: url(../../assets/callofduty.png);
+}
+
+.library__creed {
+  background-image: url(../../assets/creed.png);
+}
+
+.library__fortnite {
+  background-image: url(../../assets/fornite.png);
+}

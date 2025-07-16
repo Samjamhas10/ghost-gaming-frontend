@@ -29,13 +29,6 @@ function Navigation() {
               aria-label="Reviews"
             ></a>
           </li>
-          <li>
-            <a
-              href="/library"
-              className="nav__item nav__library"
-              aria-label="Library"
-            ></a>
-          </li>
         </ul>
       </div>
     </div>

@@ -1,0 +1,11 @@
+.nav__list {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.nav__home {
+  background-image: url(../../assets/home-icon.png);
+  background-color: red;
+  background-repeat: no-repeat;
+}
+

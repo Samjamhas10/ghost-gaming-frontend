@@ -9,6 +9,7 @@
   right: 120px;
   width: 55px;
   height: 50px;
+  cursor: pointer;
 }
 
 .header__chat {
@@ -18,6 +19,7 @@
   margin-left: 20px;
   width: 55px;
   height: 50px;
+  cursor: pointer;
 }
 
 .header__title {

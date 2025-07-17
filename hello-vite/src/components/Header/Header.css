@@ -3,7 +3,21 @@
   font-family: "Yellowtail";
 }
 
-.header {
+.header__notification {
+  background-image: url(../../assets/bell-icon.png);
+  position: absolute;
+  right: 120px;
+  width: 55px;
+  height: 50px;
+}
+
+.header__chat {
+  background-image: url(../../assets/dm-icon.png);
+  position: absolute;
+  right: 45px;
+  margin-left: 20px;
+  width: 55px;
+  height: 50px;
 }
 
 .header__title {

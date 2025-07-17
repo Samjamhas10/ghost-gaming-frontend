@@ -5,28 +5,53 @@
 
 .main__image {
   background-image: url(../../assets/main-game.png);
-
+  position: relative;
   width: 850px;
   height: 320px;
-}
-
-.games__title {
-  display: grid;
-  grid-template-columns: repeat();
-  font-size: 24px;
-  color: #ffffff;
+  margin-top: 48px;
 }
 
 .overlay__image {
   background-image: url(../../assets/warrior.png);
+  position: absolute;
+  top: -74px;
+  left: 470px;
   width: 337px;
   height: 392px;
+  /* z-index: 1; */
 }
 
-.top__games {
+.main__game-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+.main__game-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 55px;
+}
+
+.main__headset {
+  background-image: url(../../assets/gaming-headset.png);
+  background-repeat: no-repeat;
+  width: 356px;
+  height: 446px;
+  margin-top: 77px;
+}
+
+.games__title {
+  font-size: 24px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.recent__games {
   background-image: url(../../assets/recently-played.png);
   width: 400px;
   height: 400px;
-  margin-top: 48px;
+  margin-top: 29px;
   cursor: pointer;
 }

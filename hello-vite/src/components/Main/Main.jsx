@@ -3,10 +3,16 @@ import "./Main.css";
 function Main() {
   return (
     <div className="main__container">
-      <div className="main__image"></div>
-      <div className="overlay__image"></div>
-      <h2 className="games__title">Top Games</h2>
-      <div className="top__games"></div>
+      <div className="main__image">
+        <div className="overlay__image"></div>
+      </div>
+      <div className="main__game-info">
+        <div className="main__headset"></div>
+        <div className="main__game-text">
+          <h2 className="games__title">Recently Played</h2>
+          <div className="recent__games"></div>
+        </div>
+      </div>
     </div>
   );
 }

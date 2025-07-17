@@ -4,7 +4,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 // import components
 import Header from "../Header/Header";
 import Navigation from "../Navigation/Navigation";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../SearchForm/SearchForm";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
 import RegisterModal from "../RegisterModal/RegisterModal";
@@ -17,16 +17,13 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="app__grid">
-      <div className="nav">
+    <BrowserRouter>
+      <div className="app__grid">
         <Navigation />
-      </div>
-      <div className="main__column">
-        {" "}
-        <Header />
-        <SearchBar />
-        <div className="app__wrapper">
-          <BrowserRouter>
+        <div className="main__column">
+          <Header />
+          <SearchBar />
+          <div className="app__wrapper">
             <Routes>
               <Route path="/" element={<Main />} />
               <Route path="/profile" element={<Profile />} />
@@ -35,10 +32,10 @@ function App() {
             <LoginModal />
             <Library />
             <Footer />
-          </BrowserRouter>
+          </div>
         </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Library.css";
 
 function Library() {
@@ -7,18 +8,18 @@ function Library() {
       <div className="library__options">
         <ul className="library__games">
           <li>
-            <a
+            <Link
               className="library__games library__minecraft"
               aria-label="Minecraft"
-            ></a>
+            ></Link>
             <p>Minecraft</p>
           </li>
           <li>
-            <a className="library__games library__fall-guys"></a>
+            <Link className="library__games library__fall-guys"></Link>
             <p>Fall Guys</p>
           </li>
           <li>
-            <a className="library__games library__creed"></a>
+            <Link className="library__games library__creed"></Link>
             <p>Assassin Creed 2</p>
           </li>
         </ul>

@@ -6,6 +6,8 @@ function Header() {
       <div>
         <h1 className="header__title"></h1>
       </div>
+      <div className="header__notification"></div>
+      <div className="header__chat"></div>
     </>
   );
 }

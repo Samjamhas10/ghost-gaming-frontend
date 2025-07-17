@@ -1,40 +1,45 @@
+import { Link } from "react-router-dom";
 import "./Navigation.css";
 
 function Navigation() {
   return (
     <div>
-      <div className="nav__bar" >
+      <div className="nav__bar">
         <ul className="nav__list">
           <li>
-            <a
-              href="/"
+            <Link
+              to="/"
               className="nav__item nav__logo"
               aria-label="Nav Logo"
-            ></a>
+            ></Link>
           </li>
           <li>
-            <a href="/" className="nav__item nav__home" aria-label="Home"></a>
+            <Link
+              to="/"
+              className="nav__item nav__home"
+              aria-label="Home"
+            ></Link>
           </li>
           <li>
-            <a
-              href="/user"
+            <Link
+              to="/user"
               className="nav__item nav__user"
               aria-label="User"
-            ></a>
+            ></Link>
           </li>
           <li>
-            <a
-              href="/top-games"
+            <Link
+              to="/top-games"
               className="nav__item nav__top-games"
               aria-label="Top Games"
-            ></a>
+            ></Link>
           </li>
           <li>
-            <a
-              href="/reviews"
+            <Link
+              to="/reviews"
               className=" nav__item nav__reviews"
               aria-label="Reviews"
-            ></a>
+            ></Link>
           </li>
         </ul>
       </div>

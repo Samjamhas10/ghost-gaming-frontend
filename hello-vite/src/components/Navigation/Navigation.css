@@ -5,6 +5,7 @@
   position: fixed;
   left: 0;
   top: 0;
+  border-radius: 10px;
 }
 
 .nav__list {
@@ -26,6 +27,13 @@
   height: 30px;
   text-align: center;
   cursor: pointer;
+}
+
+.nav__logo {
+  background-image: url(../../assets/playstation-logo.png);
+  width: 45px;
+  height: 45px;
+  margin: 40px 0 240px;
 }
 
 .nav__home {

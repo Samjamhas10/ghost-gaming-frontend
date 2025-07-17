@@ -3,7 +3,7 @@ import "./Library.css";
 function Library() {
   return (
     <div className="library__sidebar">
-      <p className="library">Library</p>
+      <p className="library__title">Ghost Library:</p>
       <div className="library__options">
         <ul className="library__games">
           <li>
@@ -11,15 +11,15 @@ function Library() {
               className="library__games library__minecraft"
               aria-label="Minecraft"
             ></a>
+            <p>Minecraft</p>
           </li>
           <li>
-            <a className="library__games library__cod"></a>
+            <a className="library__games library__fall-guys"></a>
+            <p>Fall Guys</p>
           </li>
           <li>
             <a className="library__games library__creed"></a>
-          </li>
-          <li>
-            <a className="library__games library__fortnite"></a>
+            <p>Assassin Creed 2</p>
           </li>
         </ul>
       </div>

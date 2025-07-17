@@ -1,0 +1,32 @@
+.main__container {
+  padding: 0;
+  color: white;
+}
+
+.main__image {
+  background-image: url(../../assets/main-game.png);
+
+  width: 850px;
+  height: 320px;
+}
+
+.games__title {
+  display: grid;
+  grid-template-columns: repeat();
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.overlay__image {
+  background-image: url(../../assets/warrior.png);
+  width: 337px;
+  height: 392px;
+}
+
+.top__games {
+  background-image: url(../../assets/recently-played.png);
+  width: 400px;
+  height: 400px;
+  margin-top: 48px;
+  cursor: pointer;
+}

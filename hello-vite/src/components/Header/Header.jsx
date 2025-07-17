@@ -4,7 +4,7 @@ function Header() {
   return (
     <>
       <div>
-        <h1 className="header__title">Ghost</h1>
+        <h1 className="header__title"></h1>
       </div>
     </>
   );

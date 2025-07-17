@@ -1,18 +1,23 @@
 .app__wrapper {
-  position: absolute;
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.full__background {
+/* .full__background {
   background-image: url(../../assets/gaming.png);
   background-size: cover;
   background-position: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  /* position: relative; */
-}
+  flex-direction: column;
+  flex-grow: 1;
+} */
 
-.app__content {
-  
+.app__grid {
+  display: grid;
+  grid-template-columns: 240px 1fr 300px;
+  background-color: #000000;
 }

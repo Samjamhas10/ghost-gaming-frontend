@@ -3,8 +3,15 @@ import "./Navigation.css";
 function Navigation() {
   return (
     <div>
-      <div className="nav__bar">
+      <div className="nav__bar" >
         <ul className="nav__list">
+          <li>
+            <a
+              href="/"
+              className="nav__item nav__logo"
+              aria-label="Nav Logo"
+            ></a>
+          </li>
           <li>
             <a href="/" className="nav__item nav__home" aria-label="Home"></a>
           </li>

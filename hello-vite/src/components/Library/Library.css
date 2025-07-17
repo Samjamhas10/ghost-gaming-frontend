@@ -1,8 +1,8 @@
-.library {
+.library__title {
   color: #ffffff;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
-  font-weight: 500;
-  font-size: 20px;
+  font-weight: 700;
+  font-size: 30px;
   line-height: 24px;
   margin-bottom: 20px;
 }
@@ -25,20 +25,18 @@
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  color: #FFFFFF;
+  cursor: pointer;
 }
 
 .library__minecraft {
   background-image: url(../../assets/Minecraft.png);
 }
 
-.library__cod {
-  background-image: url(../../assets/callofduty.png);
+.library__fall-guys {
+  background-image: url(../../assets/fall-guys.png);
 }
 
 .library__creed {
   background-image: url(../../assets/creed.png);
-}
-
-.library__fortnite {
-  background-image: url(../../assets/fornite.png);
 }

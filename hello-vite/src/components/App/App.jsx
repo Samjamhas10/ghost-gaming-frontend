@@ -7,6 +7,8 @@ import Navigation from "../Navigation/Navigation";
 import SearchBar from "../SearchForm/SearchForm";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
+import TopGames from "../TopGames/TopGames";
+import GhostlyReviews from "../GhostlyReviews/GhostlyReviews";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import Library from "../Library/Library";
@@ -27,10 +29,12 @@ function App() {
             <Routes>
               <Route path="/" element={<Main />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/top-games" element={<TopGames />} />
+              <Route path="/reviews" element={<GhostlyReviews />} />
             </Routes>
             <RegisterModal />
             <LoginModal />
-            <Library />
+            {/* <Library /> */}
             <Footer />
           </div>
         </div>

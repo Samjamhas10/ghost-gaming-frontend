@@ -1,32 +1,60 @@
+.library__sidebar {
+  width: 334px;
+  height: 825px;
+  padding: 20px;
+  background-color: #1d1e22;
+  /* background-color: #067d71; */
+}
+
 .library__title {
   color: #ffffff;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 30px;
-  line-height: 24px;
   margin-bottom: 20px;
 }
 
-.library__sidebar {
-  width: 334px;
-  height: 825px;
-  position: fixed;
-  right: 0;
+.library__games-saved {
+  background-image: url(../../assets/download-icon.png);
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+  position: relative;
+  top: 80px;
+  right: -260px;
 }
 
-.library__games {
-  width: 64px;
-  height: 64px;
-  display: inline-block;
-  list-style-type: none;
+.library__games-list {
+  list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
+  gap: 30px;
+}
+
+.library__game {
+  display: flex;
   align-items: center;
-  gap: 40px;
-  color: #FFFFFF;
-  cursor: pointer;
+  gap: 12px;
+  color: #fff;
+  background-repeat: no-repeat;
+}
+
+.library__game-image {
+  width: 64px;
+  height: 64px;
+  background-size: cover;
+  background-position: center;
+  display: block;
+  border-radius: 8px;
+}
+
+.library__games:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
 }
 
 .library__minecraft {
@@ -39,4 +67,8 @@
 
 .library__creed {
   background-image: url(../../assets/creed.png);
+}
+
+.library__space-marine {
+  background-image: url(../../assets/space-marine.png);
 }

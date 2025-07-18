@@ -1,7 +1,8 @@
 import "./RegisterModal.css";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function Register() {
-  return <></>;
+  return <ModalWithForm></ModalWithForm>;
 }
 
 export default Register;

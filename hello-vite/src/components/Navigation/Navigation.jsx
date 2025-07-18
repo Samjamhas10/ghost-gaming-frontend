@@ -22,9 +22,9 @@ function Navigation() {
           </li>
           <li>
             <Link
-              to="/user"
+              to="/profile"
               className="nav__item nav__user"
-              aria-label="User"
+              aria-label="Profile"
             ></Link>
           </li>
           <li>

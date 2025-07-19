@@ -1,20 +1,22 @@
-import { Link } from "react-router-dom";
 import { Reviews } from "../../utils/constants.js";
 import "./GhostlyReviews.css";
 
 function GhostlyReviews() {
-  console.log(Reviews)
+  console.log(Reviews);
   return (
-    <div className="ghostly__reviews">
+    <section className="ghostly__reviews" aria-lable="Game Reviews">
       <h1 className="reviews__title">Ghostly Reviews:</h1>
-      <div className="reviews__image-1"></div>
       {/* Add the review styling and key*/}
-      {Reviews.map((review) => (
-        <div> review.id</div>
-      ))}
-      <p className="reviews__text">{Reviews.review}</p>
-      <div></div>
-    </div>
+      <div className="reviews__grid">
+        {Reviews.map((review) => (
+          <div key={review.id} className="review__card">
+            <h3 className="review__gamer">{review.gamer}</h3>
+            <p className="review__text">{review.text}</p>
+          </div>
+        ))}
+      </div>
+      <div className="reviews__image-1"></div>
+    </section>
   );
 }
 

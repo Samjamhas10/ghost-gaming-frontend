@@ -2,13 +2,25 @@ import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
 
-function LoginModal() {
+function LoginModal({
+  openRegisterModal,
+  isOpen,
+  onClose,
+  handleLogin,
+  onSubmit,
+}) {
   const [data, setData] = useState({
     email: "",
     password: "",
   });
 
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
   const onLogin = (event) => {
     event.preventDefault();
@@ -16,7 +28,7 @@ function LoginModal() {
   };
 
   return (
-    <ModalWithForm>
+    <ModalWithForm isOpen={isOpen} onClose={onClose} onSubmit={onSubmit}>
       <label className="login__modal">Email</label>
       <input
         className="modal__input"
@@ -43,7 +55,10 @@ function LoginModal() {
         <button type="submit" className="modal__submit modal__submit-login">
           Log In
         </button>
-        <button type="submit" className="modal__submit modal__submit-singup">
+        <button
+          className="modal__submit modal__submit-signup"
+          onClick={openRegisterModal}
+        >
           Don't Have An Account? Sign Up Here
         </button>
       </div>

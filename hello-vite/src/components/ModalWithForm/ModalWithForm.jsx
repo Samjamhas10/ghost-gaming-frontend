@@ -1,9 +1,35 @@
 import { useState } from "react";
 import "./ModalWithForm.css";
 
-function ModalWithForm() {
-  const [formData, SetFormData] = useState("");
-  return <div className="modals"></div>;
+function ModalWithForm({
+  children,
+  onSubmit,
+  isOpen,
+  onClose,
+  title,
+  titleStyes,
+  titleClass,
+  contentClass,
+}) {
+  const [formData, setFormData] = useState("");
+  return (
+    <div className={`modal ${isOpen && "modal__opened"}`}>
+      <div className={`modal__content ${contentClass}`}>
+        <div className="modal__opened"></div>
+        <h2 style={titleStyes} className={titleClass}>
+          {title}
+        </h2>
+        <button
+          className="modal__close"
+          type="button"
+          onClick={onClose}
+        ></button>
+        <form onSubmit={onSubmit} className="modal__form">
+          {children}
+        </form>
+      </div>
+    </div>
+  );
 }
 
 export default ModalWithForm;

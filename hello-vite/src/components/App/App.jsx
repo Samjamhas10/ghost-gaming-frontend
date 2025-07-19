@@ -1,5 +1,6 @@
 // import React Router
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { useState } from "react";
 
 // import components
 import Header from "../Header/Header";
@@ -17,13 +18,52 @@ import Footer from "../Footer/Footer";
 // import styles
 import "./App.css";
 
-function App() {
+function App({ isOpen, onClose }) {
+  const [activeModal, setActiveModal] = useState("");
+
+  const openRegisterModal = () => {
+    setActiveModal("signup");
+  };
+
+  const openLoginModal = () => {
+    setActiveModal("login");
+  };
+
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
+
+  const handleSignUp = ({ email, password, name, avatarUrl }) => {
+    if (!email || !password || !name || !avatarUrl) {
+      return;
+    }
+    register(email, password, name, avatarUrl)
+      .then((data) => {
+        closeActiveModal("");
+        return handleSignIn({ email, password });
+      })
+      .catch(console.error);
+  };
+
+  const handleSignIn = ({ email, password }) => {
+    if (!email || !password) {
+      return Promise.reject();
+    }
+    login(email, password).then((data) => {
+      closeActiveModal("");
+      return handleSignUp({ email, password });
+    });
+  };
+
   return (
     <BrowserRouter>
       <div className="app__grid">
         <Navigation />
         <div className="main__column">
-          <Header />
+          <Header
+            handleRegisterModal={openRegisterModal}
+            handleLoginModal={openLoginModal}
+          />
           <SearchBar />
           <div className="app__wrapper">
             <Routes>
@@ -32,9 +72,18 @@ function App() {
               <Route path="/top-games" element={<TopGames />} />
               <Route path="/reviews" element={<GhostlyReviews />} />
             </Routes>
-            <RegisterModal />
-            <LoginModal />
-            {/* <Library /> */}
+            <RegisterModal
+              isOpen={activeModal === "signup"}
+              onClose={closeActiveModal}
+              openLoginModal={openLoginModal}
+              // handleSignUp={handleSignUp}
+            />
+            <LoginModal
+              isOpen={activeModal === "login"}
+              onClose={closeActiveModal}
+              openRegisterModal={openRegisterModal}
+              // handleSignIn={handleSignIn}
+            />
             <Footer />
           </div>
         </div>

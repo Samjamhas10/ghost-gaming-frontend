@@ -3,7 +3,7 @@
   font-family: "Yellowtail";
 }
 
-.header__notification {
+.header__signup {
   background-image: url(../../assets/bell-icon.png);
   position: absolute;
   right: 120px;
@@ -13,7 +13,7 @@
   cursor: pointer;
 }
 
-.header__chat {
+.header__login {
   background-image: url(../../assets/dm-icon.png);
   position: absolute;
   right: 45px;

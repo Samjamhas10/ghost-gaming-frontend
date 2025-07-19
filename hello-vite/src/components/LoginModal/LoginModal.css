@@ -1,0 +1,11 @@
+.modal__submit-signup {
+    margin: 0;
+    width: auto;
+  }
+  
+  .modal__submit-login {
+    width: auto;
+    background-color: #3dbda7;
+  }
+
+  

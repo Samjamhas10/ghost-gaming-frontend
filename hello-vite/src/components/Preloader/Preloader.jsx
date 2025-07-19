@@ -1,9 +1,21 @@
+import { useState } from "react";
 import "./Preloader.css";
 
-function Preloader() {
+function Preloader({ isLoading, onSearch }) {
+  const handleClick = (e) => {
+    const { game, value } = e.target;
+    onSearch(game, value);
+  };
+
   return (
     <>
-      <div className="circle-preloader">Searching for games</div>
+      <button onClick={handleClick}>Search Reviews Here</button>
+      {isLoading && (
+        <div className="circle-preloader-wrapper">
+          <div className="circle-preloader" aria-label="Loading"></div>
+          <section className="preloader__title">Searching</section>
+        </div>
+      )}
     </>
   );
 }

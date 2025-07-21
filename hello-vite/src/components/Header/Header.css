@@ -3,8 +3,23 @@
   font-family: "Yellowtail";
 }
 
+.header {
+  /* position: relative; */
+}
+
+.header__title {
+  font-size: 80px;
+  font-family: Yellowtail, cursive;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.header__buttons {
+}
+
 .header__signup {
-  background-image: url(../../assets/bell-icon.png);
+  background-color: #3dbda7;
   position: absolute;
   right: 120px;
   width: 55px;
@@ -14,7 +29,7 @@
 }
 
 .header__login {
-  background-image: url(../../assets/dm-icon.png);
+  background-color: #3dbda7;
   position: absolute;
   right: 45px;
   margin-left: 20px;
@@ -22,10 +37,4 @@
   height: 50px;
   margin-top: 20px;
   cursor: pointer;
-}
-
-.header__title {
-  font-size: 80px;
-  font-family: Yellowtail, cursive;
-  margin: 0;
 }

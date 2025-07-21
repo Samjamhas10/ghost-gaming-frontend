@@ -2,6 +2,9 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useState } from "react";
 
+// import api
+// import { register, login } from "../../utils/api";
+
 // import components
 import Header from "../Header/Header";
 import Navigation from "../Navigation/Navigation";
@@ -18,8 +21,10 @@ import Footer from "../Footer/Footer";
 // import styles
 import "./App.css";
 
-function App({ isOpen, onClose }) {
+function App() {
+  // default useState
   const [activeModal, setActiveModal] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const openRegisterModal = () => {
     setActiveModal("signup");
@@ -49,10 +54,11 @@ function App({ isOpen, onClose }) {
     if (!email || !password) {
       return Promise.reject();
     }
-    login(email, password).then((data) => {
-      closeActiveModal("");
-      return handleSignUp({ email, password });
-    });
+    login(email, password)
+      .then((data) => {
+        closeActiveModal("");
+      })
+      .catch(console.error);
   };
 
   return (
@@ -61,8 +67,8 @@ function App({ isOpen, onClose }) {
         <Navigation />
         <div className="main__column">
           <Header
-            handleRegisterModal={openRegisterModal}
-            handleLoginModal={openLoginModal}
+            openRegisterModal={openRegisterModal}
+            openLoginModal={openLoginModal}
           />
           <SearchBar />
           <div className="app__wrapper">
@@ -76,13 +82,13 @@ function App({ isOpen, onClose }) {
               isOpen={activeModal === "signup"}
               onClose={closeActiveModal}
               openLoginModal={openLoginModal}
-              // handleSignUp={handleSignUp}
+              handleSignUp={handleSignUp}
             />
             <LoginModal
               isOpen={activeModal === "login"}
               onClose={closeActiveModal}
               openRegisterModal={openRegisterModal}
-              // handleSignIn={handleSignIn}
+              handleSignIn={handleSignIn}
             />
             <Footer />
           </div>

@@ -6,8 +6,9 @@ function RegisterModal({
   openLoginModal,
   isOpen,
   onClose,
-  handleRegister,
+  handleSignUp,
   onSubmit,
+  openRegisterModal,
 }) {
   const [data, setData] = useState({
     email: "",
@@ -26,15 +27,15 @@ function RegisterModal({
 
   const onRegister = (event) => {
     event.preventDefault();
-    handleRegister(true);
+    handleSignUp(data);
   };
 
   return (
-    <ModalWithForm isOpen={isOpen} onClose={onClose} onSubmit={onSubmit}>
+    <ModalWithForm isOpen={isOpen} onClose={onClose} onSubmit={onRegister}>
       <label className="register__modal">Email</label>
       <input
         className="modal__input"
-        id="email"
+        id="email-register"
         name="email"
         type="email"
         placeholder="Email"
@@ -45,7 +46,7 @@ function RegisterModal({
       <label className="register__modal">Password</label>
       <input
         className="modal__input"
-        id="password"
+        id="password-register"
         name="password"
         type="password"
         placeholder="Password"
@@ -58,7 +59,7 @@ function RegisterModal({
         className="modal__input"
         id="name"
         name="name"
-        type="name"
+        type="text"
         placeholder="Name"
         value={data.name}
         onChange={handleChange}
@@ -69,7 +70,7 @@ function RegisterModal({
         className="modal__input"
         id="avatarUrl"
         name="avatarUrl"
-        type="avatarUrl"
+        type="url"
         placeholder="AvatarUrl"
         value={data.avatarUrl}
         onChange={handleChange}
@@ -79,11 +80,7 @@ function RegisterModal({
         <button type="submit" className="modal__submit modal__submit-signup">
           Sign Up
         </button>
-        <button
-          type="submit"
-          className="modal__submit modal__submit-login"
-          onClick={openLoginModal}
-        >
+        <button type="button" className="modal__submit modal__submit-login">
           Already Have An Account? Log In Here
         </button>
       </div>

@@ -7,16 +7,15 @@ function ModalWithForm({
   isOpen,
   onClose,
   title,
-  titleStyes,
+  titleStyles,
   titleClass,
   contentClass,
 }) {
   const [formData, setFormData] = useState("");
   return (
-    <div className={`modal ${isOpen && "modal__opened"}`}>
+    <div className={`modal ${isOpen ? "modal__opened" : ""}`}>
       <div className={`modal__content ${contentClass}`}>
-        <div className="modal__opened"></div>
-        <h2 style={titleStyes} className={titleClass}>
+        <h2 style={titleStyles} className={titleClass}>
           {title}
         </h2>
         <button

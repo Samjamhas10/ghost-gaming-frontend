@@ -6,8 +6,9 @@ function LoginModal({
   openRegisterModal,
   isOpen,
   onClose,
-  handleLogin,
+  handleSignIn,
   onSubmit,
+  openLoginModal,
 }) {
   const [data, setData] = useState({
     email: "",
@@ -24,11 +25,11 @@ function LoginModal({
 
   const onLogin = (event) => {
     event.preventDefault();
-    handleLogin(true);
+    handleSignIn(data);
   };
 
   return (
-    <ModalWithForm isOpen={isOpen} onClose={onClose} onSubmit={onSubmit}>
+    <ModalWithForm isOpen={isOpen} onClose={onClose} onSubmit={onLogin}>
       <label className="login__modal">Email</label>
       <input
         className="modal__input"
@@ -52,10 +53,15 @@ function LoginModal({
         required
       ></input>
       <div className="login__buttons">
-        <button type="submit" className="modal__submit modal__submit-login">
+        <button
+          type="submit"
+          className="modal__submit modal__submit-login"
+          onClick={openLoginModal}
+        >
           Log In
         </button>
         <button
+          type="button"
           className="modal__submit modal__submit-signup"
           onClick={openRegisterModal}
         >

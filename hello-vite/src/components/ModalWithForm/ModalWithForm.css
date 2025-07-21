@@ -1,6 +1,30 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  /* background-color: #067d71; */
+}
+
+.modal__opened {
+  visibility: visible;
+}
+
 .modal__content {
-  /* visibility: hidden; */
+  background-color: #fff;
+  position: relative;
+  padding: 30px;
+  width: 50%;
+  box-sizing: border-box;
+  border-radius: 10px;
 }
 
 .modal__form {
+  display: flex;
+  flex-direction: column;
 }

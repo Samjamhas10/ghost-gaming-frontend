@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./ModalWithForm.css";
 
 function ModalWithForm({
@@ -11,11 +11,23 @@ function ModalWithForm({
   titleClass,
   contentClass,
 }) {
-  const [formData, setFormData] = useState("");
+  // const [formData, setFormData] = useState("");
 
   const closeModalOverlay = (evt) => {
     evt.stopPropagation();
   };
+
+  useEffect(() => {
+    const handleEscape = (evt) => {
+      if (evt.key === "Escape") {
+        onClose();
+      }
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [onClose]);
 
   return (
     <div className={`modal ${isOpen ? "modal__opened" : ""}`} onClick={onClose}>

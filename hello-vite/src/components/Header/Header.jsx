@@ -5,7 +5,7 @@ function Header({ openLoginModal, openRegisterModal }) {
   return (
     <header className="header">
       <div>
-        <h1 className="header__title">Ghost</h1>
+        <h1 className="header__title"></h1>
       </div>
       <div className="header__buttons">
         <button
@@ -15,7 +15,11 @@ function Header({ openLoginModal, openRegisterModal }) {
         >
           Signup
         </button>
-        <button className="header__login" onClick={openLoginModal} aria-label="Log In">
+        <button
+          className="header__login"
+          onClick={openLoginModal}
+          aria-label="Log In"
+        >
           Login
         </button>
       </div>

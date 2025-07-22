@@ -12,17 +12,23 @@ function ModalWithForm({
   contentClass,
 }) {
   const [formData, setFormData] = useState("");
+
+  const closeModalOverlay = (evt) => {
+    evt.stopPropagation();
+  };
+
   return (
-    <div className={`modal ${isOpen ? "modal__opened" : ""}`}>
-      <div className={`modal__content ${contentClass}`}>
+    <div className={`modal ${isOpen ? "modal__opened" : ""}`} onClick={onClose}>
+      <div
+        className={`modal__content ${contentClass}`}
+        onClick={closeModalOverlay}
+      >
         <h2 style={titleStyles} className={titleClass}>
           {title}
         </h2>
-        <button
-          className="modal__close"
-          type="button"
-          onClick={onClose}
-        ></button>
+        <button className="modal__close" type="button" onClick={onClose}>
+          X
+        </button>
         <form onSubmit={onSubmit} className="modal__form">
           {children}
         </form>

@@ -80,7 +80,11 @@ function RegisterModal({
         <button type="submit" className="modal__submit modal__submit-signup">
           Sign Up
         </button>
-        <button type="button" className="modal__submit modal__submit-login">
+        <button
+          type="button"
+          className="modal__submit modal__submit-signin"
+          onClick={openLoginModal}
+        >
           Already Have An Account? Log In Here
         </button>
       </div>

@@ -1,11 +1,6 @@
-.modal__submit-signup {
-    margin: 0;
-    width: auto;
-  }
-  
-  .modal__submit-login {
-    width: auto;
-    background-color: #3dbda7;
-  }
-
-  
+.login__modal {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 10px 0;
+}

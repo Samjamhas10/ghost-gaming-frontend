@@ -5,18 +5,3 @@
   margin: 10px 0;
 }
 
-.modal__input {
-  padding: 10px;
-  border-radius: 6px;
-  font-size: 20px;
-}
-
-.modal__submit-signup {
-  margin: 0;
-  width: auto;
-}
-
-.modal__submit-login {
-  width: auto;
-  background-color: #3dbda7;
-}

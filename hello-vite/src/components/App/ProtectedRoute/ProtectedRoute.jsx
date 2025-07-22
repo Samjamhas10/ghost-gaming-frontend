@@ -1,7 +1,7 @@
-// import { Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 function ProtectedRoute({}) {
-    return<></>
+  return <></>;
 }
 
 export default ProtectedRoute;

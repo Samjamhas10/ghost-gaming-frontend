@@ -41,7 +41,7 @@ function LoginModal({
         onChange={handleChange}
         required
       ></input>
-      <label className="password__type">Password</label>
+      <label className="login__modal">Password</label>
       <input
         className="modal__input"
         id="password"
@@ -53,16 +53,12 @@ function LoginModal({
         required
       ></input>
       <div className="login__buttons">
-        <button
-          type="submit"
-          className="modal__submit modal__submit-login"
-          onClick={openLoginModal}
-        >
+        <button type="submit" className="modal__submit modal__submit-login">
           Log In
         </button>
         <button
           type="button"
-          className="modal__submit modal__submit-signup"
+          className="modal__submit modal__submit-register"
           onClick={openRegisterModal}
         >
           Don't Have An Account? Sign Up Here

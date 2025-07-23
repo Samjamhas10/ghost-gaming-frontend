@@ -1,3 +1,4 @@
+import "../Footer/Footer";
 import "./Main.css";
 
 function Main() {

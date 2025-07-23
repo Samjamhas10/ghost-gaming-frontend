@@ -8,7 +8,7 @@ import { useState } from "react";
 // import components
 import Header from "../Header/Header";
 import Navigation from "../Navigation/Navigation";
-import SearchBar from "../SearchForm/SearchForm";
+import SearchBar from "../SearchBar/SearchBar";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
 import TopGames from "../TopGames/TopGames";

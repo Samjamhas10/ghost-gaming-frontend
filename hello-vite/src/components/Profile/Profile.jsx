@@ -1,5 +1,4 @@
 import Library from "../Library/Library";
-import OnlineFriends from "../OnlineFriends/OnlineFriends";
 import "./Profile.css";
 
 function Profile() {
@@ -12,13 +11,6 @@ function Profile() {
           <button className="edit__profile">Change Profile</button>
         </div>
       </section>
-      <section>
-        <div>
-          <OnlineFriends />
-        </div>
-      </section>
- 
-
       <div>
         <Library />
       </div>

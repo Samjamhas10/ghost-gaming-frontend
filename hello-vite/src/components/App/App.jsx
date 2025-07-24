@@ -2,9 +2,8 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useState } from "react";
 
-// import auth and api files
+// import auth
 import { register, authorize } from "../../utils/auth";
-import api from "../../utils/IGDBApi";
 
 // import components
 import Header from "../Header/Header";

@@ -1,87 +1,91 @@
-export function searchGames(gameTitles) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve([
-        {
-          _id: "game1",
-          title: "Super Mario Bros",
-          url: "some-image-url.jpg",
-          description: "Classic platformer game",
-          rating: 87,
-        },
-        {
-          _id: "game2",
-          title: "Call of Duty Mobile",
-          url: "some-image-url.jpg",
-          description: "",
-          rating: 96,
-        },
-        {
-          _id: "game3",
-          title: "Fortnite",
-          url: "some-image-url.jpg",
-          description: "Classic platformer game",
-          rating: 94,
-        },
-        {
-          _id: "game4",
-          title: "",
-          url: "",
-          description: "",
-          rating: 79,
-        },
-        {
-          _id: "game5",
-          title: "",
-          url: "some-image-url.jpg",
-          description: "",
-          rating: 67,
-        },
-        {
-          _id: "game6",
-          title: "",
-          url: "some-image-url.jpg",
-          description: "",
-          rating: 95,
-        },
-      ]);
-    }, 1000);
-  });
+const CLIENT_ID = "1wsoeud8986qp5or7yfy7442oggme9";
+const ACCESS__TOKEN = "5lq2fhnbnv7w8vu4iuujsayijpv98w";
+const API_URL = "https://api.igdb.com/v4/games";
+
+export const checkResponse = (res) => {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Error: ${res.status}`);
+};
+
+function searchGames(gameTitle) {
+  const query = `
+    fields name, summary, rating, cover.url, genres.name, platforms.name;
+    search "${gameTitle}";
+    where rating != null;
+    limit 15;
+  `;
+  return fetch(API_URL, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Client-ID": "1wsoeud8986qp5or7yfy7442oggme9",
+      Authorization: `Bearer ${ACCESS__TOKEN}`,
+    },
+    body: query,
+  }).then(checkResponse);
 }
 
-export function getPopularGames() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve([
-        {
-          _id: "game1",
-          title: "",
-          url: "some-image-url.jpg",
-          description: "",
-          rating: 95,
-        },
-        {
-          _id: "game2",
-          title: "Call of Duty Mobile",
-          url: "some-image-url.jpg",
-          description: "",
-          rating: 96,
-        },
-        {
-          _id: "game3",
-          title: "Fortnite",
-          url: "some-image-url.jpg",
-          description: "Classic platformer game",
-          rating: 94,
-        },
-      ]);
-    }, 800);
-  });
+function getRecentlyPlayedGames() {
+  const query = `
+  fields name, summary, rating, cover.url, genres.name, platforms.name; 
+  where rating > 80 & rating count > 10;
+  limit 20`;
+  return fetch(API_URL, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Client-ID": "1wsoeud8986qp5or7yfy7442oggme9",
+      Authorization: `Bearer ${ACCESS__TOKEN}`,
+    },
+    body: query,
+  }).then(checkResponse);
+}
+
+function getNewestGames() {
+  const query = ``;
+  return fetch(API_URL, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Client-ID": "1wsoeud8986qp5or7yfy7442oggme9",
+      Authorization: `Bearer ${ACCESS__TOKEN}`,
+    },
+    body: query,
+  }).then(checkResponse);
+}
+function getTopRatedGames() {
+  const query = ``;
+  return fetch(API_URL, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Client-ID": "1wsoeud8986qp5or7yfy7442oggme9",
+      Authorization: `Bearer ${ACCESS__TOKEN}`,
+    },
+    body: query,
+  }).then(checkResponse);
+}
+function getGamesByGenre() {
+  const query = ``;
+  return fetch(API_URL, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Client-ID": "1wsoeud8986qp5or7yfy7442oggme9",
+      Authorization: `Bearer ${ACCESS__TOKEN}`,
+    },
+    body: query,
+  }).then(checkResponse);
 }
 
 const api = {
   searchGames,
-  getPopularGames,
+  getRecentlyPlayedGames,
+  getNewestGames,
+  getTopRatedGames,
+  getGamesByGenre,
 };
 
 export default api;

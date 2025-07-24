@@ -25,7 +25,13 @@ export const Reviews = [
     date: "",
   },
 ];
-
+ 
+export const Games = [
+  {
+    game1: "Call of Duty Black Ops",
+    
+  }
+]
 // add game id
 
 // Mock review data types

@@ -2,8 +2,9 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useState } from "react";
 
-// import api
-// import { register, login } from "../../utils/api";
+// import auth and api files
+import { register, authorize } from "../../utils/auth";
+import api from "../../utils/IGDBApi";
 
 // import components
 import Header from "../Header/Header";
@@ -17,6 +18,7 @@ import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import Library from "../Library/Library";
 import Footer from "../Footer/Footer";
+import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 
 // import styles
 import "./App.css";
@@ -24,14 +26,14 @@ import "./App.css";
 function App() {
   // default useState
   const [activeModal, setActiveModal] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState(false);
 
   const openRegisterModal = () => {
     setActiveModal("signup");
   };
 
   const openLoginModal = () => {
-    setActiveModal("login");
+    setActiveModal("signin");
   };
 
   const closeActiveModal = () => {
@@ -54,7 +56,7 @@ function App() {
     if (!email || !password) {
       return Promise.reject();
     }
-    login(email, password)
+    authorize(email, password)
       .then((data) => {
         closeActiveModal("");
       })
@@ -73,23 +75,32 @@ function App() {
           <SearchBar />
           <div className="app__wrapper">
             <Routes>
-              <Route path="/" element={<Main />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/" element={<Main isSignedIn={isSignedIn} />} />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute isSignedIn={isSignedIn}>
+                    <Profile />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="/top-games" element={<TopGames />} />
               <Route path="/reviews" element={<GhostlyReviews />} />
             </Routes>
-            <RegisterModal
-              isOpen={activeModal === "signup"}
-              onClose={closeActiveModal}
-              openLoginModal={openLoginModal}
-              handleSignUp={handleSignUp}
-            />
-            <LoginModal
-              isOpen={activeModal === "login"}
-              onClose={closeActiveModal}
-              openRegisterModal={openRegisterModal}
-              handleSignIn={handleSignIn}
-            />
+            <div>
+              <RegisterModal
+                isOpen={activeModal === "signup"}
+                onClose={closeActiveModal}
+                openLoginModal={openLoginModal}
+                handleSignUp={handleSignUp}
+              />
+              <LoginModal
+                isOpen={activeModal === "signin"}
+                onClose={closeActiveModal}
+                openRegisterModal={openRegisterModal}
+                handleSignIn={handleSignIn}
+              />
+            </div>
             <Footer />
           </div>
         </div>

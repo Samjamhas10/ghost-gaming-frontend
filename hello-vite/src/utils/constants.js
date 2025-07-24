@@ -1,3 +1,4 @@
+// const {BASE_URL} = https://api.igdb.com/v4;
 export const Reviews = [
   {
     id: 1,
@@ -29,4 +30,4 @@ export const Reviews = [
 
 // Mock review data types
 
-export const APIkey = "";
+export const APIkey = "1wsoeud8986qp5or7yfy7442oggme9";

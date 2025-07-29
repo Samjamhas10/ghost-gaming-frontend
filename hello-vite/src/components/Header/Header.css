@@ -4,7 +4,9 @@
 }
 
 .header {
-  /* position: relative; */
+  /* display: flex;
+  flex-direction: row; */
+
 }
 
 .header__title {

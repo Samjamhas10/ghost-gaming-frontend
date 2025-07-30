@@ -7,7 +7,7 @@ function Preloader({ isLoading, onSearch }) {
 
   return (
     <>
-      <button onClick={handleClick}>Search Reviews Here</button>
+      {/* <button onClick={handleClick}>Search Reviews Here</button> */}
       {isLoading && (
         <div className="circle-preloader-wrapper">
           <div className="circle-preloader" aria-label="Loading"></div>

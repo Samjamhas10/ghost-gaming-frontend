@@ -22,3 +22,6 @@
 .search__bar::placeholder {
   color: rgba(255, 255, 255, 0.7);
 }
+
+.modal__submit-search {
+}

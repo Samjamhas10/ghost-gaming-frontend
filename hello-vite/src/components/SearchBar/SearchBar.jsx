@@ -3,6 +3,7 @@ import "./SearchBar.css";
 
 function SearchBar({ handleSearch, searchData, searchLoading, searchError }) {
   const [query, setQuery] = useState("");
+  const [gameResults, setGameResults] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,12 +18,15 @@ function SearchBar({ handleSearch, searchData, searchLoading, searchError }) {
         value={query}
         onChange={(event) => setQuery(event.target.value)}
       ></input>
-      <button className="search__games" onClick={handleSearch}></button>
+      <button
+        className="modal__submit modal__submit-search"
+        onSubmit={handleSearch}
+      ></button>
       {searchLoading && <p>Loading...</p>}
-      {searchError && <p>Error loading games: {error.message}</p>}
+      {searchError && <p>Error loading games: {searchError.message}</p>}
       {searchData.map((game) => (
         <div key={game.id} className="game">
-          <h3>{game.name}</h3>
+          <h2>{game.name}</h2>
         </div>
       ))}
     </form>

@@ -81,26 +81,12 @@ function App() {
         setSearchError(null);
       })
       .catch((err) => {
-        setError(err);
+        setSearchError(err);
       })
       .finally(() => {
         setSearchLoading(false);
       });
   };
-
-  // useEffect(() => {
-  //   api
-  //     .searchGames()
-  //     .then((data) => {
-  //       setSearchData(data);
-  //     })
-  //     .catch((err) => {
-  //       setSearchError(err);
-  //     })
-  //     .finally(() => {
-  //       setSearchLoading(false);
-  //     });
-  // }, []);
 
   const handleSignUp = ({ email, password, name, avatarUrl }) => {
     if (!email || !password || !name || !avatarUrl) {

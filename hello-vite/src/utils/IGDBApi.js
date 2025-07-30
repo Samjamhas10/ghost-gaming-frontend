@@ -10,14 +10,23 @@ export const checkResponse = (res) => {
 };
 
 function searchGames(gameTitle) {
-  return fetch("http://localhost:3004/games", {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      "Client-ID": "1wsoeud8986qp5or7yfy7442oggme9",
-      Authorization: `Bearer ${ACCESS_TOKEN}`,
-    },
-  }).then(checkResponse);
+  return fetch(
+    `http://localhost:3004/games?gameTitle=${encodeURIComponent(gameTitle)}`,
+    {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Client-ID": "1wsoeud8986qp5or7yfy7442oggme9",
+        Authorization: `Bearer ${ACCESS_TOKEN}`,
+      },
+    }
+  )
+    .then(checkResponse)
+    .then((games) => {
+      return games.filter((game) => {
+        gameTitle.toLowerCase().includes(gameTitle);
+      });
+    });
 }
 
 function getRecentlyPlayedGames() {

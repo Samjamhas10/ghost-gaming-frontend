@@ -1,7 +1,6 @@
 .search {
   display: flex;
   justify-content: flex-start;
-  position: relative;
 }
 
 .search__bar {

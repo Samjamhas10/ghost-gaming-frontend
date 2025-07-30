@@ -1,10 +1,8 @@
-import { useState } from "react";
 import "./Preloader.css";
 
 function Preloader({ isLoading, onSearch }) {
   const handleClick = (e) => {
-    const { game, value } = e.target;
-    onSearch(game, value);
+    onSearch();
   };
 
   return (

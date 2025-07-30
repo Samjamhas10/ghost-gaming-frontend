@@ -24,14 +24,19 @@ export const Reviews = [
     text: "",
     date: "",
   },
+  {
+    id: 5,
+    gamer: "Shelby",
+    text: "",
+    date: "",
+  },
 ];
- 
+
 export const Games = [
   {
     game1: "Call of Duty Black Ops",
-    
-  }
-]
+  },
+];
 // add game id
 
 // Mock review data types

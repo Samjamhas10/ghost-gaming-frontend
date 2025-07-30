@@ -1,36 +1,7 @@
-import { useState, useEffect } from "react";
 import "../Footer/Footer";
 import "./Main.css";
-import api from "../../utils/IGDBApi";
 
-function Main() {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  const handleRecentlyPlayed = () => {
-    api
-      .getRecentlyPlayedGames()
-      .then((data) => {
-        setData(data);
-      })
-      .catch(console.error);
-  };
-
-  useEffect(() => {
-    api
-      .getRecentlyPlayedGames()
-      .then((data) => {
-        setData(data);
-      })
-      .catch((err) => {
-        setError(err);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, []);
-
+function Main({ handleRecentlyPlayed, data, isLoading, error }) {
   return (
     <div className="main__container">
       <div className="main__image">
@@ -47,6 +18,8 @@ function Main() {
             {" "}
             Load Recently Played Games
           </button>
+          {isLoading && <p>Loading...</p>}
+          {error && <p>Error loading games: {error.message}</p>}
           <div className="recent__games">
             {data.map((game) => (
               <div key={game.id} className="game__card">

@@ -1,14 +1,16 @@
 // import React Router
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-// import auth
+// import auth & api
 import { register, authorize } from "../../utils/auth";
+import api from "../../utils/IGDBApi";
 
 // import components
 import Header from "../Header/Header";
 import Navigation from "../Navigation/Navigation";
 import SearchBar from "../SearchBar/SearchBar";
+import Preloader from "../Preloader/Preloader";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
 import TopGames from "../TopGames/TopGames";
@@ -23,9 +25,15 @@ import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import "./App.css";
 
 function App() {
-  // default useState
+  // default state variables
   const [activeModal, setActiveModal] = useState("");
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [searchData, setSearchData] = useState([]);
+  const [searchLoading, setSearchLoading] = useState(false);
+  const [searchError, setSearchError] = useState(null);
 
   const openRegisterModal = () => {
     setActiveModal("signup");
@@ -38,6 +46,61 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
   };
+
+  const handleRecentlyPlayed = () => {
+    api
+      .getRecentlyPlayedGames()
+      .then((data) => {
+        setData(data);
+      })
+      .catch(console.error);
+  };
+
+  useEffect(() => {
+    api
+      .getRecentlyPlayedGames()
+      .then((data) => {
+        setData(data);
+      })
+      .catch((err) => {
+        setError(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
+
+  const handleSearch = (query) => {
+    if (!query) return;
+    setSearchLoading(true);
+    api
+      .searchGames(query)
+      .then((data) => {
+        console.log(data);
+        setSearchData(data);
+        setSearchError(null);
+      })
+      .catch((err) => {
+        setError(err);
+      })
+      .finally(() => {
+        setSearchLoading(false);
+      });
+  };
+
+  // useEffect(() => {
+  //   api
+  //     .searchGames()
+  //     .then((data) => {
+  //       setSearchData(data);
+  //     })
+  //     .catch((err) => {
+  //       setSearchError(err);
+  //     })
+  //     .finally(() => {
+  //       setSearchLoading(false);
+  //     });
+  // }, []);
 
   const handleSignUp = ({ email, password, name, avatarUrl }) => {
     if (!email || !password || !name || !avatarUrl) {
@@ -71,10 +134,27 @@ function App() {
             openRegisterModal={openRegisterModal}
             openLoginModal={openLoginModal}
           />
-          <SearchBar />
+          <Preloader isLoading={searchLoading} onSearch={handleSearch} />
+          <SearchBar
+            handleSearch={handleSearch}
+            searchData={searchData}
+            searchLoading={searchLoading}
+            searchError={searchError}
+          />
           <div className="app__wrapper">
             <Routes>
-              <Route path="/" element={<Main isSignedIn={isSignedIn} />} />
+              <Route
+                path="/"
+                element={
+                  <Main
+                    onClick={handleRecentlyPlayed}
+                    data={data}
+                    isLoading={isLoading}
+                    error={error}
+                    isSignedIn={isSignedIn}
+                  />
+                }
+              />
               <Route
                 path="/profile"
                 element={

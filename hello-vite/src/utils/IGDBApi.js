@@ -10,20 +10,13 @@ export const checkResponse = (res) => {
 };
 
 function searchGames(gameTitle) {
-  const query = `
-    fields name, summary, rating, cover.url, genres.name, platforms.name;
-    search "${gameTitle}";
-    where rating != null;
-    limit 15;
-  `;
-  return fetch(API_URL, {
-    method: "POST",
+  return fetch("http://localhost:3004/games", {
+    method: "GET",
     headers: {
       Accept: "application/json",
       "Client-ID": "1wsoeud8986qp5or7yfy7442oggme9",
       Authorization: `Bearer ${ACCESS_TOKEN}`,
     },
-    body: query,
   }).then(checkResponse);
 }
 

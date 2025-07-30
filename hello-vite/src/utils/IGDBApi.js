@@ -11,7 +11,9 @@ export const checkResponse = (res) => {
 
 function searchGames(gameTitle) {
   return fetch(
-    `http://localhost:3004/games?gameTitle=${encodeURIComponent(gameTitle)}`,
+    `http://localhost:3004/games/search?gameTitle=${encodeURIComponent(
+      gameTitle
+    )}`,
     {
       method: "GET",
       headers: {
@@ -23,8 +25,9 @@ function searchGames(gameTitle) {
   )
     .then(checkResponse)
     .then((games) => {
+      console.log(games);
       return games.filter((game) => {
-        gameTitle.toLowerCase().includes(gameTitle);
+        return game.name.toLowerCase().includes(gameTitle.toLowerCase());
       });
     });
 }

@@ -3,7 +3,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 // import auth & api
-import { register, authorize } from "../../utils/auth";
+import { register, authorize, checkToken } from "../../utils/auth";
 import api from "../../utils/IGDBApi";
 
 // import components
@@ -34,7 +34,8 @@ function App() {
   const [searchData, setSearchData] = useState([]);
   const [searchLoading, setSearchLoading] = useState(false);
   const [searchError, setSearchError] = useState(null);
-
+  const [currentUser, setCurrentUser] = useState(null);
+  console.log(searchData);
   const openRegisterModal = () => {
     setActiveModal("signup");
   };
@@ -81,6 +82,7 @@ function App() {
         setSearchError(null);
       })
       .catch((err) => {
+        console.error(err);
         setSearchError(err);
       })
       .finally(() => {
@@ -106,6 +108,10 @@ function App() {
     }
     authorize(email, password)
       .then((data) => {
+        checkToken(data.token).then((userData) => {
+          setCurrentUser(userData);
+          setIsSignedIn(true);
+        });
         closeActiveModal("");
       })
       .catch(console.error);
@@ -119,6 +125,7 @@ function App() {
           <Header
             openRegisterModal={openRegisterModal}
             openLoginModal={openLoginModal}
+            currentUser={currentUser}
           />
           <Preloader isLoading={searchLoading} onSearch={handleSearch} />
           <SearchBar

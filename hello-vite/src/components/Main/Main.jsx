@@ -6,9 +6,6 @@ function Main({ handleRecentlyPlayed, data, isLoading, error }) {
     <div className="main__container">
       <div className="main__image">
         <div className="overlay__image"></div>
-        <h2 className="main__image-title">
-          Assassin's Creed Valhalla: Survive At All Costs
-        </h2>
       </div>
       <div className="main__game-info">
         <div className="main__headset"></div>

@@ -29,13 +29,6 @@ function Navigation() {
           </li>
           <li>
             <Link
-              to="/top-games"
-              className="nav__item nav__top-games"
-              aria-label="Top Games"
-            ></Link>
-          </li>
-          <li>
-            <Link
               to="/reviews"
               className=" nav__item nav__reviews"
               aria-label="Reviews"

@@ -13,7 +13,6 @@ import SearchBar from "../SearchBar/SearchBar";
 import Preloader from "../Preloader/Preloader";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
-import TopGames from "../TopGames/TopGames";
 import GhostlyReviews from "../GhostlyReviews/GhostlyReviews";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
@@ -156,7 +155,6 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/top-games" element={<TopGames />} />
               <Route path="/reviews" element={<GhostlyReviews />} />
             </Routes>
             <div>

@@ -4,12 +4,12 @@
 }
 
 .main__image {
-  background-image: url(../../assets/main-game.png);
+  background-image: url(../../assets/main-game.svg);
   position: relative;
   width: 850px;
   height: 320px;
   margin-top: 48px;
-  margin-left: 45px;
+  /* margin-left: 45px; */
 }
 
 .main__image-title {
@@ -17,16 +17,16 @@
   font-weight: 700;
   font-size: 40px;
   line-height: 24px;
-  margin: 64px 0 0 45px;
+  /* margin: 64px 0 0 45px; */
 }
 
 .overlay__image {
-  background-image: url(../../assets/warrior.png);
+  background-image: url(../../assets/space-marine.svg);
   position: absolute;
-  top: -74px;
-  left: 470px;
-  width: 337px;
-  height: 392px;
+  top: -52px;
+  left: 296px;
+  width: 633px;
+  height: 372px;
   /* z-index: 1; */
 }
 
@@ -60,9 +60,6 @@
 .recent__games {
   width: 400px;
   height: 400px;
-  margin-top: 29px;
+  margin: 10px 0;
   cursor: pointer;
-}
-
-.card {
 }

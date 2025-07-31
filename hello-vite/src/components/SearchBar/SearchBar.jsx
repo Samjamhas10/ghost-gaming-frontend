@@ -21,7 +21,7 @@ function SearchBar({ handleSearch, searchData, searchLoading, searchError }) {
           onChange={(event) => setQuery(event.target.value)}
         ></input>
         <button type="submit" className="search__icon-button">
-          <img src={searchIcon} alt="search"  />
+          <img src={searchIcon} alt="search" />
         </button>
       </div>
       {searchLoading && <p>Loading...</p>}
@@ -29,6 +29,7 @@ function SearchBar({ handleSearch, searchData, searchLoading, searchError }) {
       {searchData.map((game) => (
         <div key={game.id} className="search__game-outcome">
           <h2 className="game__name">{game.name}</h2>
+          {/* add image here */}
         </div>
       ))}
     </form>

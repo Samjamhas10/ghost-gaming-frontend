@@ -1,5 +1,5 @@
 const CLIENT_ID = "";
-const ACCESS_TOKEN = "5lq2fhnbnv7w8vu4iuujsayijpv98w";
+const ACCESS_TOKEN = "5lq2fhnbnv7w8vu4iuujsayijpv98w"; // move to .env
 const API_URL = "https://api.igdb.com/v4/games ";
 
 export const checkResponse = (res) => {

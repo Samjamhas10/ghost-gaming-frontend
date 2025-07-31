@@ -13,6 +13,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import Preloader from "../Preloader/Preloader";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
+import GamesCollection from "./GamesCollection/GamesCollection";
 import GhostlyReviews from "../GhostlyReviews/GhostlyReviews";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
@@ -155,7 +156,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/reviews" element={<GhostlyReviews />} />
+              <Route path="/saved" element={<GamesCollection />} />
             </Routes>
             <div>
               <RegisterModal

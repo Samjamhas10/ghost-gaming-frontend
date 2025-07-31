@@ -1,4 +1,4 @@
-.ghostly__reviews {
+.saved__games {
   background-color: #067d71;
   color: #fff;
   padding: 20px;
@@ -10,27 +10,27 @@
   height: 800px;
 }
 
-.reviews__title {
+.saved__games-title {
   font-size: 40px;
   margin-bottom: 20px;
   text-align: center;
   width: 100%;
 }
 
-.review__grid {
+.collections__grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.review__card {
+.collection__card {
   border: 2px solid #fff;
   border-radius: 10px;
   width: 300px;
   padding: 20px;
 }
 
-.review__gamer {
+.collection__title {
   font-weight: 500;
   margin-bottom: 8px;
 }
@@ -39,9 +39,9 @@
   color: red;
 }
 
-/* .reviews__image-1 {
+.collection__image-1 {
   background-image: url(../../assets/ghost-gaming.png);
   background-repeat: no-repeat;
   width: 100%;
   height: 800px;
-} */
+}

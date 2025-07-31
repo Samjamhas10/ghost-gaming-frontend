@@ -44,10 +44,6 @@
   background-image: url(../../assets/user-icon.svg);
 }
 
-.nav__top-games {
-  background-image: url(../../assets/trophy-icon.svg);
-}
-
-.nav__reviews {
-  background-image: url(../../assets/star-icon.png);
+.nav__games {
+  background-image: url(../../assets/save-icon.svg);
 }

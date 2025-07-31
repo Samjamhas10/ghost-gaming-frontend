@@ -29,9 +29,9 @@ function Navigation() {
           </li>
           <li>
             <Link
-              to="/reviews"
-              className=" nav__item nav__reviews"
-              aria-label="Reviews"
+              to="/saved"
+              className=" nav__item nav__games"
+              aria-label="saved"
             ></Link>
           </li>
         </ul>

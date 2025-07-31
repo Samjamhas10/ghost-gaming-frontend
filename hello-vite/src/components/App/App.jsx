@@ -14,10 +14,8 @@ import Preloader from "../Preloader/Preloader";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
 import GamesCollection from "./GamesCollection/GamesCollection";
-import GhostlyReviews from "../GhostlyReviews/GhostlyReviews";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
-import Library from "../Library/Library";
 import Footer from "../Footer/Footer";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 
@@ -156,7 +154,14 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/saved" element={<GamesCollection />} />
+              <Route
+                path="/saved"
+                element={
+                  <ProtectedRoute isSignedIn={isSignedIn}>
+                    <GamesCollection />{" "}
+                  </ProtectedRoute>
+                }
+              />
             </Routes>
             <div>
               <RegisterModal

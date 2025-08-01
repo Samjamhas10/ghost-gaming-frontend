@@ -26,6 +26,7 @@ function App() {
   // default state variables
   const [activeModal, setActiveModal] = useState("");
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const [isSignedOut, setIsSignedOut] = useState(false);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -34,6 +35,22 @@ function App() {
   const [searchError, setSearchError] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   console.log(searchData);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      checkToken(token)
+        .then((userData) => {
+          setCurrentUser(userData);
+          setIsSignedIn(true);
+        })
+        .catch((err) => {
+          console.error("Token validation failed:", err);
+          localStorage.remove("token");
+        });
+    }
+  }, []);
+
   const openRegisterModal = () => {
     setActiveModal("signup");
   };
@@ -93,7 +110,7 @@ function App() {
       return;
     }
     register(email, password, name, avatarUrl)
-      .then((data) => {
+      .then(() => {
         closeActiveModal("");
         return handleSignIn({ email, password });
       })
@@ -106,6 +123,7 @@ function App() {
     }
     authorize(email, password)
       .then((data) => {
+        localStorage.setItem("token", data.token);
         checkToken(data.token).then((userData) => {
           setCurrentUser(userData);
           setIsSignedIn(true);
@@ -113,6 +131,12 @@ function App() {
         closeActiveModal("");
       })
       .catch(console.error);
+  };
+
+  const handleSignOut = ({ email, password }) => {
+    if (email || password) {
+      setIsSignedOut(true);
+    }
   };
 
   return (
@@ -150,7 +174,10 @@ function App() {
                 path="/profile"
                 element={
                   <ProtectedRoute isSignedIn={isSignedIn}>
-                    <Profile />
+                    <Profile
+                      handleSignOut={handleSignOut}
+                      isSignedOut={setIsSignedOut}
+                    />
                   </ProtectedRoute>
                 }
               />

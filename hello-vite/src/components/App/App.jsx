@@ -133,10 +133,10 @@ function App() {
       .catch(console.error);
   };
 
-  const handleSignOut = ({ email, password }) => {
-    if (email || password) {
-      setIsSignedOut(true);
-    }
+  const handleSignOut = () => {
+    setIsSignedIn(false);
+    setCurrentUser({});
+    localStorage.removeItem("token", data.token);
   };
 
   return (

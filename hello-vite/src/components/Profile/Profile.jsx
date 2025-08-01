@@ -1,6 +1,6 @@
 import "./Profile.css";
 
-function Profile({ setIsSignedOut, handleSignOut }) {
+function Profile({ handleSignOut }) {
   return (
     <div className="profile">
       <section className="profile__sidebar">

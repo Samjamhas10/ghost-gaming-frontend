@@ -32,6 +32,7 @@ function App() {
   const [error, setError] = useState(null);
   const [searchData, setSearchData] = useState([]);
   const [searchLoading, setSearchLoading] = useState(false);
+  const [searchPerformed, setSearchPerformed] = useState(false);
   const [searchError, setSearchError] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   console.log(searchData);
@@ -96,6 +97,7 @@ function App() {
         console.log(data);
         setSearchData(data);
         setSearchError(null);
+        setSearchPerformed(true);
       })
       .catch((err) => {
         console.error(err);
@@ -156,6 +158,7 @@ function App() {
             searchData={searchData}
             searchLoading={searchLoading}
             searchError={searchError}
+            searchPerformed={searchPerformed}
           />
           <div className="app__wrapper">
             <Routes>

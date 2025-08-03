@@ -3,13 +3,21 @@ import Preloader from "../Preloader/Preloader";
 import "./SearchBar.css";
 import searchIcon from "../../assets/search-icon.svg";
 
-function SearchBar({ handleSearch, searchData, searchLoading, searchError }) {
+function SearchBar({
+  handleSearch,
+  searchData,
+  searchLoading,
+  searchError,
+  searchPerformed,
+}) {
   const [query, setQuery] = useState(""); // store what is typed
+  const [searchResults, setSearchResults] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     handleSearch(query);
   };
+  console.log(searchLoading, searchError, searchData.length === 0); // Remove
 
   return (
     <form className="search" onSubmit={handleSubmit}>
@@ -28,22 +36,33 @@ function SearchBar({ handleSearch, searchData, searchLoading, searchError }) {
       {searchLoading && <Preloader searchLoading={searchLoading} />}
       {!searchLoading && searchError && (
         <p className="search__error">
-          "Sorry, something went wrong during the request. There may be a
+          Sorry, something went wrong during the request. There may be a
           connection issue or the server may be down. Please try again later.
         </p>
       )}
-      {!searchLoading && !searchError && searchData.length === 0 && (
-        <p className="search__results">Nothing Found</p>
-      )}
+      {!searchLoading &&
+        !searchError &&
+        searchPerformed &&
+        searchData.length === 0 && (
+          <p className="search__results">Nothing Found</p>
+        )}
+      {/* searchLoading && !searchError && searchData.length > 0 ? 
+        Nothing Found :
+        .... */}
       {!searchLoading &&
         !searchError &&
         searchData.length > 0 &&
         searchData.map((game) => (
           <div key={game.id} className="search__game-outcome">
             <h2 className="game__name">{game.name}</h2>
-            {/* add image here */}
+            {game.image && (
+              <img src={game.image} alt="game image" className="game__image" />
+            )}
           </div>
         ))}
+      {!searchLoading && !searchError && searchData.length <= 3 && (
+        <button className="search__more">Show More</button>
+      )}
     </form>
   );
 }

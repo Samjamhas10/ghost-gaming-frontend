@@ -2,14 +2,7 @@ import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
 
-function LoginModal({
-  openRegisterModal,
-  isOpen,
-  onClose,
-  handleSignIn,
-  onSubmit,
-  openLoginModal,
-}) {
+function LoginModal({ openRegisterModal, isOpen, onClose, handleSignIn }) {
   const [data, setData] = useState({
     email: "",
     password: "",

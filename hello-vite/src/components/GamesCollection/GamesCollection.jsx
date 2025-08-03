@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./GamesCollection.css";
-import Preloader from "../../Preloader/Preloader";
+import Preloader from "../Preloader/Preloader";
 
 function GamesCollection() {
   const [isLoading, setIsLoading] = useState(false);
@@ -16,8 +16,6 @@ function GamesCollection() {
       setIsLoading(false);
     }
   };
-
-//   console.log(collection);
   return (
     <div>
       <Preloader isLoading={isLoading} onSearch={handleSearch} />

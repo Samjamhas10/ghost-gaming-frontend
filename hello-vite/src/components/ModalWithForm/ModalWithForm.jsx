@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "./ModalWithForm.css";
 
 function ModalWithForm({
@@ -11,8 +11,6 @@ function ModalWithForm({
   titleClass,
   contentClass,
 }) {
-  // const [formData, setFormData] = useState("");
-
   const closeModalOverlay = (evt) => {
     evt.stopPropagation();
   };

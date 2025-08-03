@@ -14,11 +14,11 @@ import SearchResults from "../SearchResults/SearchResults";
 import Preloader from "../Preloader/Preloader";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
-import UpdateProfile from "../UpdateProfile/UpdateProfile";
+//import UpdateProfileModal from "../UpdateProfileModal/UpdateProfileModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import Footer from "../Footer/Footer";
-import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 // import styles
 import "./App.css";
@@ -60,6 +60,11 @@ function App() {
 
   const openLoginModal = () => {
     setActiveModal("signin");
+  };
+
+  const openUpdateProfileModal = () => {
+    console.log("button clicked");
+    setActiveModal("update");
   };
 
   const closeActiveModal = () => {
@@ -144,17 +149,8 @@ function App() {
     localStorage.removeItem("token");
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const onProfile = (event) => {
-    event.preventDefault();
-    handleProfile(data);
+  const handleProfile = () => {
+    const token = localStorage.getItem("token");
   };
 
   return (
@@ -207,7 +203,6 @@ function App() {
                   <Profile
                     handleSignOut={handleSignOut}
                     isSignedOut={setIsSignedOut}
-                    onSubmit={onProfile}
                   />
                 </ProtectedRoute>
               }
@@ -226,6 +221,11 @@ function App() {
               openRegisterModal={openRegisterModal}
               handleSignIn={handleSignIn}
             />
+            {/* <UpdateProfileModal
+              isOpen={activeModal === "update"}
+              onClose={closeActiveModal}
+              openUpdateProfileModal={openUpdateProfileModal}
+            /> */} 
           </div>
           <Footer />
         </div>

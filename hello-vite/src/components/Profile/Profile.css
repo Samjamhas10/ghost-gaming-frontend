@@ -12,8 +12,4 @@
 }
 
 .profile__image {
-  background-image: url(../../assets/avatar.png);
-  background-repeat: no-repeat;
-  width: auto;
-  height: 300px;
 }

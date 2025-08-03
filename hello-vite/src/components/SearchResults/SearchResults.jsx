@@ -1,5 +1,5 @@
 // import react hooks/ css styling
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./SearchResults.css";
 
 function SearchResults({
@@ -14,15 +14,29 @@ function SearchResults({
   // slice results
   const displayResults = searchData.slice(0, count);
 
-  useEffect(() => {
-    setCount(3); // count set to 3 when the component first renders
-  }, []);
-
   const handleShowMore = () => {
     setCount((prev) => prev + 3);
     console.log("button clicked");
   };
 
+  console.log(
+    "count:",
+    count,
+    "searchData.length:",
+    searchData.length,
+    "count < searchData.length:",
+    count < searchData.length
+  );
+
+  console.log(
+    !searchLoading,
+    !searchError,
+    searchPerformed,
+    searchData.length,
+    searchData.length <= 3,
+    count <= searchData.length
+  );
+  
   return (
     <div className="search__results-containter">
       {displayResults.map((item, index) => (
@@ -33,8 +47,7 @@ function SearchResults({
       {!searchLoading &&
         !searchError &&
         searchPerformed &&
-        displayResults &&
-        searchData.length < 3 &&
+        searchData.length > 3 &&
         count < searchData.length && (
           <button className="search__results" onClick={handleShowMore}>
             Show More

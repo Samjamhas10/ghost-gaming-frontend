@@ -1,11 +1,30 @@
+import { useState, useEffect } from "react";
 import "./SearchResults.css";
 
-function SearchResults() {
+function SearchResults({
+  searchData,
+  searchLoading,
+  searchError,
+  searchPerformed,
+  searchOutcome,
+}) {
+  const [count, setCount] = useState(3);
+
+  useEffect(() => {
+    setCount(3);
+  }, []);
+
+  const handleShowMore = () => {};
+
   return (
     <div>
       {" "}
-      <div className="game__not-loaded">Game not found</div>
-      <button className="game__results">Show More</button>
+      {!searchLoading &&
+        !searchError &&
+        searchPerformed &&
+        searchData.length > 3 && (
+          <button className="search__results">Show More</button>
+        )}
     </div>
   );
 }

@@ -10,6 +10,7 @@ import api from "../../utils/IGDBApi";
 import Header from "../Header/Header";
 import Navigation from "../Navigation/Navigation";
 import SearchBar from "../SearchBar/SearchBar";
+import SearchResults from "../SearchResults/SearchResults";
 import Preloader from "../Preloader/Preloader";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
@@ -33,6 +34,7 @@ function App() {
   const [searchData, setSearchData] = useState([]);
   const [searchLoading, setSearchLoading] = useState(false);
   const [searchPerformed, setSearchPerformed] = useState(false);
+  const [searchOutcome, setSearchOutcome] = useState(false);
   const [searchError, setSearchError] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
   console.log(searchData);
@@ -98,6 +100,7 @@ function App() {
         setSearchData(data);
         setSearchError(null);
         setSearchPerformed(true);
+        setSearchOutcome(true);
       })
       .catch((err) => {
         console.error(err);
@@ -159,6 +162,14 @@ function App() {
             searchLoading={searchLoading}
             searchError={searchError}
             searchPerformed={searchPerformed}
+          />
+          <SearchResults
+            handleSearch={handleSearch}
+            searchData={searchData}
+            searchLoading={searchLoading}
+            searchError={searchError}
+            searchPerformed={searchPerformed}
+            searchOutcome={searchOutcome}
           />
           <div className="app__wrapper">
             <Routes>

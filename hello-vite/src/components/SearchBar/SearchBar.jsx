@@ -11,7 +11,6 @@ function SearchBar({
   searchPerformed,
 }) {
   const [query, setQuery] = useState(""); // store what is typed
-  const [searchResults, setSearchResults] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -35,7 +34,7 @@ function SearchBar({
       </div>
       {searchLoading && <Preloader searchLoading={searchLoading} />}
       {!searchLoading && searchError && (
-        <p className="search__error">
+        <p className="search__error-data">
           Sorry, something went wrong during the request. There may be a
           connection issue or the server may be down. Please try again later.
         </p>
@@ -44,7 +43,7 @@ function SearchBar({
         !searchError &&
         searchPerformed &&
         searchData.length === 0 && (
-          <p className="search__results">Nothing Found</p>
+          <p className="search__error">Nothing Found</p>
         )}
       {/* searchLoading && !searchError && searchData.length > 0 ? 
         Nothing Found :
@@ -60,9 +59,6 @@ function SearchBar({
             )}
           </div>
         ))}
-      {!searchLoading && !searchError && searchData.length <= 3 && (
-        <button className="search__more">Show More</button>
-      )}
     </form>
   );
 }

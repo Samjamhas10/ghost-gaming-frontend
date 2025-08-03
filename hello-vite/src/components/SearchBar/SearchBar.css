@@ -47,6 +47,10 @@
   cursor: pointer;
 }
 
+.search__error {
+  color: #fff;
+}
+
 .search__game-outcome {
   font-size: 20px;
   line-height: 24px;

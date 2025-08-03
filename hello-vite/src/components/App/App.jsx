@@ -14,7 +14,7 @@ import SearchResults from "../SearchResults/SearchResults";
 import Preloader from "../Preloader/Preloader";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
-import GamesCollection from "./GamesCollection/GamesCollection";
+import UpdateProfile from "../UpdateProfile/UpdateProfile";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import Footer from "../Footer/Footer";
@@ -67,7 +67,6 @@ function App() {
   };
 
   const handleRecentlyPlayed = () => {
-    console.log("button clicked");
     api
       .getRecentlyPlayedGames()
       .then((data) => {
@@ -145,6 +144,19 @@ function App() {
     localStorage.removeItem("token");
   };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const onProfile = (event) => {
+    event.preventDefault();
+    handleProfile(data);
+  };
+
   return (
     <BrowserRouter>
       <div className="app__grid">
@@ -156,71 +168,66 @@ function App() {
             currentUser={currentUser}
           />
           <Preloader isLoading={searchLoading} onSearch={handleSearch} />
-          <SearchBar
-            handleSearch={handleSearch}
-            searchData={searchData}
-            searchLoading={searchLoading}
-            searchError={searchError}
-            searchPerformed={searchPerformed}
-          />
-          <SearchResults
-            handleSearch={handleSearch}
-            searchData={searchData}
-            searchLoading={searchLoading}
-            searchError={searchError}
-            searchPerformed={searchPerformed}
-            searchOutcome={searchOutcome}
-          />
-          <div className="app__wrapper">
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <Main
-                    handleRecentlyPlayed={handleRecentlyPlayed}
-                    data={data}
-                    isLoading={isLoading}
-                    error={error}
-                    isSignedIn={isSignedIn}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <SearchBar
+                    handleSearch={handleSearch}
+                    searchData={searchData}
+                    searchLoading={searchLoading}
+                    searchError={searchError}
+                    searchPerformed={searchPerformed}
                   />
-                }
-              />
-              <Route
-                path="/profile"
-                element={
-                  <ProtectedRoute isSignedIn={isSignedIn}>
-                    <Profile
-                      handleSignOut={handleSignOut}
-                      isSignedOut={setIsSignedOut}
+                  <SearchResults
+                    handleSearch={handleSearch}
+                    searchData={searchData}
+                    searchLoading={searchLoading}
+                    searchError={searchError}
+                    searchPerformed={searchPerformed}
+                    searchOutcome={searchOutcome}
+                  />
+                  <div className="app__wrapper">
+                    <Main
+                      handleRecentlyPlayed={handleRecentlyPlayed}
+                      data={data}
+                      isLoading={isLoading}
+                      error={error}
+                      isSignedIn={isSignedIn}
                     />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/saved"
-                element={
-                  <ProtectedRoute isSignedIn={isSignedIn}>
-                    <GamesCollection />{" "}
-                  </ProtectedRoute>
-                }
-              />
-            </Routes>
-            <div>
-              <RegisterModal
-                isOpen={activeModal === "signup"}
-                onClose={closeActiveModal}
-                openLoginModal={openLoginModal}
-                handleSignUp={handleSignUp}
-              />
-              <LoginModal
-                isOpen={activeModal === "signin"}
-                onClose={closeActiveModal}
-                openRegisterModal={openRegisterModal}
-                handleSignIn={handleSignIn}
-              />
-            </div>
-            <Footer />
+                  </div>
+                </>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute isSignedIn={isSignedIn}>
+                  <Profile
+                    handleSignOut={handleSignOut}
+                    isSignedOut={setIsSignedOut}
+                    onSubmit={onProfile}
+                  />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+          <div>
+            <RegisterModal
+              isOpen={activeModal === "signup"}
+              onClose={closeActiveModal}
+              openLoginModal={openLoginModal}
+              handleSignUp={handleSignUp}
+            />
+            <LoginModal
+              isOpen={activeModal === "signin"}
+              onClose={closeActiveModal}
+              openRegisterModal={openRegisterModal}
+              handleSignIn={handleSignIn}
+            />
           </div>
+          <Footer />
         </div>
       </div>
     </BrowserRouter>

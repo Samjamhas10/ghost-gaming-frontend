@@ -29,14 +29,6 @@ function Navigation() {
               title="User Profile"
             ></Link>
           </li>
-          <li>
-            <Link
-              to="/saved"
-              className=" nav__item nav__games"
-              aria-label="Games"
-              title="Saved Games"
-            ></Link>
-          </li>
         </ul>
       </div>
     </div>

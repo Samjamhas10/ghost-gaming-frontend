@@ -1,4 +1,4 @@
-import "../Footer/Footer";
+import Preloader from "../Preloader/Preloader";
 import "./Main.css";
 
 function Main({ handleRecentlyPlayed, data, isLoading, error }) {
@@ -10,12 +10,12 @@ function Main({ handleRecentlyPlayed, data, isLoading, error }) {
       <div className="main__game-info">
         <div className="main__headset"></div>
         <div className="main__game-text">
-          <h2 className="games__title">Recently Played</h2>
+          <h2 className="games__title">Recently Played Games:</h2>
           <button onClick={handleRecentlyPlayed}>
             {" "}
             Load Recently Played Games
           </button>
-          {isLoading && <p>Loading...</p>}
+          <Preloader isLoading={isLoading} />
           {error && <p>Error loading games: {error.message}</p>}
           <div className="recent__games">
             {data.map((game) => (

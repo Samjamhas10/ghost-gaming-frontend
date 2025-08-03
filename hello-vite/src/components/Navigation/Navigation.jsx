@@ -18,20 +18,23 @@ function Navigation() {
               to="/"
               className="nav__item nav__home"
               aria-label="Home"
+              title="Homepage"
             ></Link>
           </li>
           <li>
             <Link
               to="/profile"
               className="nav__item nav__user"
-              aria-label="Profile"
+              aria-label="User"
+              title="User Profile"
             ></Link>
           </li>
           <li>
             <Link
               to="/saved"
               className=" nav__item nav__games"
-              aria-label="saved"
+              aria-label="Games"
+              title="Saved Games"
             ></Link>
           </li>
         </ul>

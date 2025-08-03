@@ -40,10 +40,23 @@
   background-image: url(../../assets/home-icon.png);
 }
 
+.nav__home:hover {
+  opacity: 0.6;
+}
+
 .nav__user {
   background-image: url(../../assets/user-icon.svg);
+  display: inline-block;
+}
+
+.nav__user:hover {
+  opacity: 0.6;
 }
 
 .nav__games {
   background-image: url(../../assets/save-icon.svg);
+}
+
+.nav__games:hover {
+  opacity: 0.6;
 }

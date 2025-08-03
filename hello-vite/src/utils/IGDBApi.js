@@ -43,20 +43,6 @@ function getRecentlyPlayedGames() {
   }).then(checkResponse);
 }
 
-function getTopRatedGames() {
-  const query = `fields name, summary, rating, cover.url, genres.name, platforms.name; where rating > 80 & rating count > 10;
-  limit 20`;
-  return fetch(API_URL, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Client-ID": "1wsoeud8986qp5or7yfy7442oggme9",
-      Authorization: `Bearer ${ACCESS_TOKEN}`,
-    },
-    body: query,
-  }).then(checkResponse);
-}
-
 function getGamesByGenre() {
   const query = `fields name, summary, rating, cover.url, genres.name, platforms.name`;
   return fetch(API_URL, {
@@ -73,7 +59,6 @@ function getGamesByGenre() {
 const api = {
   searchGames,
   getRecentlyPlayedGames,
-  getTopRatedGames,
   getGamesByGenre,
 };
 

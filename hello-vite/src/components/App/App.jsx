@@ -46,7 +46,7 @@ function App() {
         })
         .catch((err) => {
           console.error("Token validation failed:", err);
-          localStorage.remove("token");
+          localStorage.removeItem("token");
         });
     }
   }, []);
@@ -64,6 +64,7 @@ function App() {
   };
 
   const handleRecentlyPlayed = () => {
+    console.log("button clicked");
     api
       .getRecentlyPlayedGames()
       .then((data) => {
@@ -111,7 +112,7 @@ function App() {
     }
     register(email, password, name, avatarUrl)
       .then(() => {
-        closeActiveModal("");
+        closeActiveModal();
         return handleSignIn({ email, password });
       })
       .catch(console.error);
@@ -128,15 +129,15 @@ function App() {
           setCurrentUser(userData);
           setIsSignedIn(true);
         });
-        closeActiveModal("");
+        closeActiveModal();
       })
       .catch(console.error);
   };
 
   const handleSignOut = () => {
     setIsSignedIn(false);
-    setCurrentUser({});
-    localStorage.removeItem("token", data.token);
+    setCurrentUser(null);
+    localStorage.removeItem("token");
   };
 
   return (
@@ -162,7 +163,7 @@ function App() {
                 path="/"
                 element={
                   <Main
-                    onClick={handleRecentlyPlayed}
+                    handleRecentlyPlayed={handleRecentlyPlayed}
                     data={data}
                     isLoading={isLoading}
                     error={error}

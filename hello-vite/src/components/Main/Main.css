@@ -1,4 +1,4 @@
-.main__container {
+.main {
   padding: 0;
   color: white;
 }
@@ -8,16 +8,7 @@
   position: relative;
   width: 850px;
   height: 320px;
-  margin-top: 48px;
-  /* margin-left: 45px; */
-}
-
-.main__image-title {
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 24px;
-  /* margin: 64px 0 0 45px; */
+  margin-top: 40px;
 }
 
 .overlay__image {
@@ -33,33 +24,89 @@
 .main__game-info {
   display: flex;
   align-items: flex-start;
-  /* gap: 48px; */
-}
-
-.main__game-text {
-  display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 55px;
+  margin-top: 0;
 }
 
-.main__headset {
-  background-image: url(../../assets/gaming-headset.png);
-  background-repeat: no-repeat;
-  width: 356px;
-  height: 446px;
-  margin: 77px 73px 49px 0;
+.main__image-title {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 24px;
 }
 
-.games__title {
+.main__games-title {
   font-size: 24px;
   color: #ffffff;
-  margin: 0;
+  margin: 20px 0;
 }
 
-.recent__games {
+.main__games-load {
+  padding: 4px;
+  background-color: #3dbda7;
+  cursor: pointer;
+}
+
+.main__recent-games {
   width: 400px;
   height: 400px;
-  margin: 10px 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   cursor: pointer;
+  color: #fff;
+}
+
+.main__suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+.main__suggestions-title {
+  font-size: 24px;
+  color: #ffffff;
+  margin: 20px 0;
+}
+
+.main__suggestions-1 {
+  background-image: url(../../assets/callofduty.png);
+  width: 401px;
+  height: 115px;
+}
+
+.main__suggestions-2 {
+  background-image: url(../../assets/minecraft.png);
+  width: 401px;
+  height: 115px;
+}
+
+.main__suggestions-3 {
+  background-image: url(../../assets/fortnite.png);
+  width: 401px;
+  height: 115px;
+}
+
+@media screen and (max-width: 627px) {
+  .main__container {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .main__image {
+  }
+
+  .main__image-title {
+  }
+
+  .overlay__image {
+  }
+
+  .main__game-info {
+  }
+
+  .games__title {
+  }
+
+  .recent__games {
+  }
 }

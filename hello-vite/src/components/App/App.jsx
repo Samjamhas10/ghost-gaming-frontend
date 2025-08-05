@@ -155,9 +155,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="app__grid">
+      <div className="app">
         <Navigation />
-        <div className="main__column">
+        <div className="app__column">
           <Header
             openRegisterModal={openRegisterModal}
             openLoginModal={openLoginModal}
@@ -184,15 +184,13 @@ function App() {
                     searchPerformed={searchPerformed}
                     searchOutcome={searchOutcome}
                   />
-                  <div className="app__wrapper">
-                    <Main
-                      handleRecentlyPlayed={handleRecentlyPlayed}
-                      data={data}
-                      isLoading={isLoading}
-                      error={error}
-                      isSignedIn={isSignedIn}
-                    />
-                  </div>
+                  <Main
+                    handleRecentlyPlayed={handleRecentlyPlayed}
+                    data={data}
+                    isLoading={isLoading}
+                    error={error}
+                    isSignedIn={isSignedIn}
+                  />
                 </>
               }
             />
@@ -225,7 +223,7 @@ function App() {
               isOpen={activeModal === "update"}
               onClose={closeActiveModal}
               openUpdateProfileModal={openUpdateProfileModal}
-            /> */} 
+            /> */}
           </div>
           <Footer />
         </div>

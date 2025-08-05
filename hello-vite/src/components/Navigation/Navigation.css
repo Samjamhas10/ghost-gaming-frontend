@@ -1,11 +1,12 @@
 .nav__bar {
   background-image: url(../../assets/nav-bar.png);
   width: 125px;
-  height: 1024px;
-  position: fixed;
-  left: 0;
-  top: 0;
+  /* height: 1024px; */
+  /* position: fixed; */
+  /* left: 0;
+  top: 0; */
   border-radius: 10px;
+  margin-right: 128px;
 }
 
 .nav__list {
@@ -59,4 +60,25 @@
 
 .nav__games:hover {
   opacity: 0.6;
+}
+
+@media screen and (max-width: 627px) {
+  .nav__bar {
+    width: 50px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 2px;
+    padding: 10px;
+    margin: 0;
+  }
+
+  .nav__logo {
+  }
+
+  .nav__item {
+    width: 24px;
+    height: 24px;
+  }
 }

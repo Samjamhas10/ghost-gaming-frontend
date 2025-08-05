@@ -6,11 +6,10 @@
 .header {
   /* display: flex;
   flex-direction: row; */
-
 }
 
 .header__title {
-  font-size: 80px;
+  font-size: 40px;
   font-family: Yellowtail, cursive;
   margin: 0;
   display: flex;
@@ -55,5 +54,6 @@
 }
 
 @media screen and (max-width: 627px) {
-  
+  .header__title {
+  }
 }

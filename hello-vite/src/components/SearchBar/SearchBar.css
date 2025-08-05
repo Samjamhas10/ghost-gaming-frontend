@@ -67,3 +67,10 @@
   flex-direction: column;
   margin: 10px;
 }
+
+@media screen and (max-width: 627px) {
+
+  .search__bar {
+    width: 70px;
+  }
+}

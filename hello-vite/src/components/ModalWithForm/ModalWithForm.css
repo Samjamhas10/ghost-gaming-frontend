@@ -40,8 +40,7 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
-  margin-top: 30px;
-  margin-right: 20px;
+  margin: 30px 20px 0 0;
   width: auto;
   border: none;
   box-shadow: none;
@@ -65,3 +64,41 @@
   box-shadow: none;
   cursor: pointer;
 }
+
+@media screen and (max-width: 627px) {
+  .modal {
+  }
+
+  .modal__content {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .modal__submit {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
+  .modal__input {
+    padding: 5px;
+  }
+}
+
+/* @media screen and (max-width: 375px) {
+  .modal {
+  }
+
+  .modal__content {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .modal__submit {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
+  .modal__input {
+    padding: 5px;
+  }
+} */

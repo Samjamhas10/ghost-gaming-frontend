@@ -14,7 +14,7 @@ import SearchResults from "../SearchResults/SearchResults";
 import Preloader from "../Preloader/Preloader";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
-//import UpdateProfileModal from "../UpdateProfileModal/UpdateProfileModal";
+import UpdateProfileModal from "../UpdateProfileModal/UpdateProfileModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import Footer from "../Footer/Footer";
@@ -201,6 +201,7 @@ function App() {
                   <Profile
                     handleSignOut={handleSignOut}
                     isSignedOut={setIsSignedOut}
+                    openUpdateProfileModal={openUpdateProfileModal}
                   />
                 </ProtectedRoute>
               }
@@ -219,11 +220,11 @@ function App() {
               openRegisterModal={openRegisterModal}
               handleSignIn={handleSignIn}
             />
-            {/* <UpdateProfileModal
+            <UpdateProfileModal
               isOpen={activeModal === "update"}
               onClose={closeActiveModal}
               openUpdateProfileModal={openUpdateProfileModal}
-            /> */}
+            />
           </div>
           <Footer />
         </div>

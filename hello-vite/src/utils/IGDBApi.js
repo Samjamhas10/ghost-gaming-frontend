@@ -43,23 +43,10 @@ function getRecentlyPlayedGames() {
   }).then(checkResponse);
 }
 
-function getGamesByGenre() {
-  const query = `fields name, summary, rating, cover.url, genres.name, platforms.name`;
-  return fetch(API_URL, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Client-ID": "1wsoeud8986qp5or7yfy7442oggme9",
-      Authorization: `Bearer ${ACCESS_TOKEN}`,
-    },
-    body: query,
-  }).then(checkResponse);
-}
 
 const api = {
   searchGames,
   getRecentlyPlayedGames,
-  getGamesByGenre,
 };
 
 export default api;

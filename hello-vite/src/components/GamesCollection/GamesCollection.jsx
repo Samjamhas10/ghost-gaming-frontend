@@ -6,6 +6,27 @@ function GamesCollection() {
   const [isLoading, setIsLoading] = useState(false);
   const [collections, setCollections] = useState([]);
 
+  // const fetchSaveGame = async (game) => {
+  //   const token = localStorage.getItem("token");
+  //   try {
+  //     return fetch("http://localhost:3004/games", {
+  //       method: "GET",
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Client-ID": "1wsoeud8986qp5or7yfy7442oggme9",
+  //         Authorization: `Bearer ${ACCESS_TOKEN}`,
+  //       },
+  //     }
+  // };
+
+  const fetchSavedGames = async () => {
+    const token = localStorage.getItem("token");
+  };
+
+  const fetchDeleteGame = async (gameId) => {
+    const token = localStorage.getItem("token");
+  };
+
   const handleSearch = async (game, value) => {
     setIsLoading(true);
     try {

@@ -13,3 +13,11 @@
 
 .profile__image {
 }
+
+.profile__logout {
+  cursor: pointer;
+}
+
+.profile__edit {
+  cursor: pointer;
+}

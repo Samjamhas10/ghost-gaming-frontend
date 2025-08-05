@@ -9,7 +9,7 @@ function Profile({ handleSignOut, openUpdateProfileModal }) {
         <div className="profile__background">
           <h1 className="profile__title">Welcome, Gamer12!</h1>
           <div className="profile__image">
-            <button className="edit__profile" onClick={openUpdateProfileModal}>
+            <button className="profile__edit" onClick={openUpdateProfileModal}>
               Change Profile
             </button>
             <button className="profile__logout" onClick={handleSignOut}>

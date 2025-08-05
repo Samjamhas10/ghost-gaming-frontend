@@ -4,9 +4,10 @@ import "./UpdateProfileModal.css";
 
 function UpdateProfileModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
-    username: "",
-    bio: "",
-    avatarUrl: "",
+    username: "gamer12",
+    bio: "I love to game, mostly at night.",
+    avatarUrl:
+      "https://images.unsplash.com/photo-1646950887163-25b5bff58eed?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   });
 
   const handleChange = (e) => {
@@ -28,7 +29,7 @@ function UpdateProfileModal({ isOpen, onClose }) {
       <label>
         <input
           name="username"
-          id=""
+          id="username"
           value={formData.username}
           type="text"
           onChange={handleChange}

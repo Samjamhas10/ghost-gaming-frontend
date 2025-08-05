@@ -149,10 +149,6 @@ function App() {
     localStorage.removeItem("token");
   };
 
-  const handleProfile = () => {
-    const token = localStorage.getItem("token");
-  };
-
   return (
     <BrowserRouter>
       <div className="app">

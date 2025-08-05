@@ -1,13 +1,13 @@
 import { useState } from "react";
+import { checkResponse } from "../../utils/IGDBApi";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./UpdateProfileModal.css";
 
 function UpdateProfileModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
-    username: "gamer12",
-    bio: "I love to game, mostly at night.",
-    avatarUrl:
-      "https://images.unsplash.com/photo-1646950887163-25b5bff58eed?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    username: "",
+    bio: "",
+    avatarUrl: "",
   });
 
   const handleChange = (e) => {
@@ -16,6 +16,22 @@ function UpdateProfileModal({ isOpen, onClose }) {
       ...prevData,
       [name]: value,
     }));
+  };
+  const handleProfile = (formData) => {
+    const token = localStorage.getItem("token");
+
+    const { username, bio, avatarUrl } = formData;
+
+    // API call
+    return fetch("http://localhost:3004/users", {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Client-ID": "1wsoeud8986qp5or7yfy7442oggme9",
+        Authorization: `bearer ${token}`,
+      },
+      body: JSON.stringify({ username, bio, avatarUrl }),
+    }).then(checkResponse);
   };
 
   const onProfile = (event) => {
@@ -26,32 +42,36 @@ function UpdateProfileModal({ isOpen, onClose }) {
 
   return (
     <ModalWithForm isOpen={isOpen} onClose={onClose} onSubmit={onProfile}>
-      <label>
-        <input
-          name="username"
-          id="username"
-          value={formData.username}
-          type="text"
-          onChange={handleChange}
-          placeholder="Username"
-        ></input>
-        <input
-          name="bio"
-          id="bio"
-          value={formData.bio}
-          type="text"
-          onChange={handleChange}
-          placeholder="Bio"
-        ></input>
-        <input
-          name="avatarUrl"
-          id="avatarUrl"
-          value={formData.avatarUrl}
-          type="url"
-          onChange={handleChange}
-          placeholder="Avatar URL"
-        ></input>
-      </label>
+      <label className="profile__modal">Username*</label>
+      <input
+        className="modal__input"
+        name="username"
+        id="username"
+        value={formData.username}
+        type="text"
+        onChange={handleChange}
+        placeholder="Username"
+      ></input>
+      <label className="profile__modal">Bio*</label>
+      <input
+        className="modal__input"
+        name="bio"
+        id="bio"
+        value={formData.bio}
+        type="text"
+        onChange={handleChange}
+        placeholder="Bio"
+      ></input>
+      <label className="profile__modal">AvatarUrl*</label>
+      <input
+        className="modal__input"
+        name="avatarUrl"
+        id="avatarUrl"
+        value={formData.avatarUrl}
+        type="url"
+        onChange={handleChange}
+        placeholder="Avatar URL"
+      ></input>
       <button className="modal__submit modal__submit-profile">
         Save changes
       </button>

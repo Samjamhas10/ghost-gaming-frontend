@@ -43,10 +43,22 @@ function getRecentlyPlayedGames() {
   }).then(checkResponse);
 }
 
+function updateProfile() {
+  return fetch("http://localhost:3004/users", {
+    method: "PATCH",
+    headers: {
+      Accept: "application/json",
+      "Client-ID": "1wsoeud8986qp5or7yfy7442oggme9",
+      Authorization: `bearer ${token}`,
+    },
+    body: JSON.stringify({ username, bio, avatarUrl }),
+  }).then(checkResponse);
+}
 
 const api = {
   searchGames,
   getRecentlyPlayedGames,
+  updateProfile,
 };
 
 export default api;

@@ -25,7 +25,6 @@ function searchGames(gameTitle) {
   )
     .then(checkResponse)
     .then((games) => {
-      console.log(games);
       return games.filter((game) => {
         return game.name.toLowerCase().includes(gameTitle.toLowerCase());
       });

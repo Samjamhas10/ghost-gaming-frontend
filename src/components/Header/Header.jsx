@@ -24,7 +24,7 @@ function Header({
         <h1 className="header__title"></h1>
       </div>
       {currentUser ? (
-        <div>{currentUser.name}</div>
+        <div className="header__current-user">{currentUser.name}</div>
       ) : (
         <div className="header__buttons">
           <button

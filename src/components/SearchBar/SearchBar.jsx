@@ -16,7 +16,6 @@ function SearchBar({
     event.preventDefault();
     handleSearch(query);
   };
-  console.log(searchLoading, searchError, searchData.length === 0); // Remove
 
   return (
     <form className="search" onSubmit={handleSubmit}>

@@ -17,21 +17,33 @@ function UpdateProfileModal({ isOpen, onClose }) {
       [name]: value,
     }));
   };
+
   const handleProfile = (formData) => {
     const token = localStorage.getItem("token");
-
     const { username, bio, avatarUrl } = formData;
 
+    console.log("Form data:", formData);
+    console.log("Extracted data:", { username, bio, avatarUrl });
+    console.log("Token exists:", !!token);
+
     // API call
-    return fetch("http://localhost:3004/users", {
+    return fetch("http://localhost:3004/users/me", {
       method: "PATCH",
       headers: {
         Accept: "application/json",
-        "Client-ID": "1wsoeud8986qp5or7yfy7442oggme9",
-        Authorization: `bearer ${token}`,
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({ username, bio, avatarUrl }),
-    }).then(checkResponse);
+    }).then((response) => {
+      console.log("Response status:", response.status);
+      if (!response.ok) {
+        return response.json().then((userData) => {
+          onClose();
+          return userData; // Return data before closing
+        });
+      }
+    });
   };
 
   const onProfile = (event) => {

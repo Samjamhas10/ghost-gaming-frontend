@@ -9,7 +9,6 @@ import api from "../../utils/IGDBApi";
 // import components
 import Header from "../Header/Header";
 import Navigation from "../Navigation/Navigation";
-import SearchResults from "../SearchResults/SearchResults";
 import Preloader from "../Preloader/Preloader";
 import Main from "../Main/Main";
 import Profile from "../Profile/Profile";
@@ -33,10 +32,8 @@ function App() {
   const [searchData, setSearchData] = useState([]);
   const [searchLoading, setSearchLoading] = useState(false);
   const [searchPerformed, setSearchPerformed] = useState(false);
-  const [searchOutcome, setSearchOutcome] = useState(false);
   const [searchError, setSearchError] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
-  console.log(searchData);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -62,7 +59,6 @@ function App() {
   };
 
   const openUpdateProfileModal = () => {
-    console.log("button clicked");
     setActiveModal("update");
   };
 
@@ -90,11 +86,9 @@ function App() {
     api
       .searchGames(query)
       .then((data) => {
-        console.log(data);
         setSearchData(data);
         setSearchError(null);
         setSearchPerformed(true);
-        setSearchOutcome(true);
       })
       .catch((err) => {
         console.error(err);
@@ -159,22 +153,12 @@ function App() {
             <Route
               path="/"
               element={
-                <>
-                  <SearchResults
-                    handleSearch={handleSearch}
-                    searchData={searchData}
-                    searchLoading={searchLoading}
-                    searchError={searchError}
-                    searchPerformed={searchPerformed}
-                    searchOutcome={searchOutcome}
-                  />
-                  <Main
-                    data={data}
-                    isLoading={isLoading}
-                    error={error}
-                    isSignedIn={isSignedIn}
-                  />
-                </>
+                <Main
+                  data={data}
+                  isLoading={isLoading}
+                  error={error}
+                  isSignedIn={isSignedIn}
+                />
               }
             />
             <Route

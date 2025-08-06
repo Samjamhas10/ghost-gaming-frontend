@@ -49,6 +49,12 @@
   opacity: 0.3;
 }
 
+.header__current-user {
+  color: #fff;
+  font-size: 30px;
+  font-family: Yellowtail, cursive;
+}
+
 @media screen and (max-width: 627px) {
   .header__title {
   }

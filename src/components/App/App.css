@@ -1,0 +1,21 @@
+.app {
+  display: flex;
+  flex-direction: row;
+  background-color: #1d1e22;
+}
+
+.app__column {
+  flex: 1;
+}
+
+@media screen and (max-width: 627px) {
+  .app__grid {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 5px;
+  }
+  .app__column {
+    width: 100%;
+  }
+}

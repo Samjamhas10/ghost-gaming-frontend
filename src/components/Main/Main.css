@@ -1,0 +1,112 @@
+.main {
+  padding: 0;
+  color: white;
+}
+
+.main__image {
+  background-image: url(../../assets/main-game.svg);
+  position: relative;
+  width: 850px;
+  height: 320px;
+  margin-top: 40px;
+}
+
+.overlay__image {
+  background-image: url(../../assets/space-marine.svg);
+  position: absolute;
+  top: -52px;
+  left: 296px;
+  width: 633px;
+  height: 372px;
+  /* z-index: 1; */
+}
+
+.main__game-info {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 0;
+}
+
+.main__image-title {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 24px;
+}
+
+.main__games-title {
+  font-size: 24px;
+  color: #ffffff;
+  margin: 20px 0;
+}
+
+.main__games-load {
+  padding: 4px;
+  background-color: #3dbda7;
+  cursor: pointer;
+}
+
+.main__recent-games {
+  width: 400px;
+  height: 400px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  color: #fff;
+}
+
+.main__suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+.main__suggestions-title {
+  font-size: 24px;
+  color: #ffffff;
+  margin: 20px 0;
+}
+
+.main__suggestions-1 {
+  background-image: url(../../assets/callofduty.png);
+  width: 401px;
+  height: 115px;
+}
+
+.main__suggestions-2 {
+  background-image: url(../../assets/minecraft.png);
+  width: 401px;
+  height: 115px;
+}
+
+.main__suggestions-3 {
+  background-image: url(../../assets/fortnite.png);
+  width: 401px;
+  height: 115px;
+}
+
+@media screen and (max-width: 627px) {
+  .main__container {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .main__image {
+  }
+
+  .main__image-title {
+  }
+
+  .overlay__image {
+  }
+
+  .main__game-info {
+  }
+
+  .games__title {
+  }
+
+  .recent__games {
+  }
+}

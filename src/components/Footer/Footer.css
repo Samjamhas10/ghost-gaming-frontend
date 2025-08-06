@@ -31,7 +31,24 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 627px) {
+/* @media screen and (max-width: 688px) {
+  .footer {
+    width: 86%;
+  }
+
+  .footer__socials {
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+  }
+
+  .footer__copyright {
+    text-align: center;
+    font-size: 14px;
+  }
+} */
+
+@media screen and (max-width: 670px) {
   .footer {
     width: 86%;
   }

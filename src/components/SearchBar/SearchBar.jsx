@@ -20,18 +20,17 @@ function SearchBar({
 
   return (
     <form className="search" onSubmit={handleSubmit}>
-      <div>
-        <input
-          className="search__bar"
-          placeholder="Search"
-          aria-label="Search Games"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-        ></input>
-        <button type="submit" className="search__icon-button">
-          <img src={searchIcon} alt="search" />
-        </button>
-      </div>
+      <input
+        className="search__bar"
+        placeholder="Search"
+        aria-label="Search Games"
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
+      ></input>
+      <button type="submit" className="search__icon-button">
+        <img src={searchIcon} alt="search" />
+      </button>
+
       {searchLoading && <Preloader searchLoading={searchLoading} />}
       {!searchLoading && searchError && (
         <p className="search__error-data">
@@ -45,9 +44,6 @@ function SearchBar({
         searchData.length === 0 && (
           <p className="search__error">Nothing Found</p>
         )}
-      {/* searchLoading && !searchError && searchData.length > 0 ? 
-        Nothing Found :
-        .... */}
       {!searchLoading &&
         !searchError &&
         searchData.length > 0 &&

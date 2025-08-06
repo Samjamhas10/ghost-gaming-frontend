@@ -1,17 +1,16 @@
 import Preloader from "../Preloader/Preloader";
+import mainGame from "../../assets/main-game.svg";
+import overlayImage from "../../assets/space-marine.svg";
 import "./Main.css";
 
-function Main({ handleRecentlyPlayed, data, isLoading, error }) {
+function Main({ data, isLoading, error }) {
   return (
     <main className="main">
-      <section className="main__image">
-        <div className="overlay__image"></div>
-      </section>
+      <div className="main__image"></div>
+      {/* <img src={mainGame} alt="Main Game" className="main__image" /> */}
+      <img src={overlayImage} alt="Space Marine" className="overlay__image" />
       <section className="main__game-info">
         <h2 className="main__games-title">Recently Played Games:</h2>
-        <button className="main__games-load" onClick={handleRecentlyPlayed}>
-          Load Recently Played Games
-        </button>
         <Preloader isLoading={isLoading} />
         {error && <p>Error loading games: {error.message}</p>}
         <ul className="main__recent-games">

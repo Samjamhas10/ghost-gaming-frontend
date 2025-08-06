@@ -70,15 +70,6 @@ function App() {
     setActiveModal("");
   };
 
-  const handleRecentlyPlayed = () => {
-    api
-      .getRecentlyPlayedGames()
-      .then((data) => {
-        setData(data);
-      })
-      .catch(console.error);
-  };
-
   useEffect(() => {
     api
       .getRecentlyPlayedGames()
@@ -178,7 +169,6 @@ function App() {
                     searchOutcome={searchOutcome}
                   />
                   <Main
-                    handleRecentlyPlayed={handleRecentlyPlayed}
                     data={data}
                     isLoading={isLoading}
                     error={error}

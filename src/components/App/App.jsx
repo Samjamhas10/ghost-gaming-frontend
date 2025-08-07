@@ -35,6 +35,7 @@ function App() {
   const [searchPerformed, setSearchPerformed] = useState(false);
   const [searchError, setSearchError] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
+  const [saveGames, setSavedGames] = useState(true);
 
   useEffect(() => {
     if (token) {
@@ -77,6 +78,20 @@ function App() {
       .getRecentlyPlayedGames()
       .then((data) => {
         setData(data);
+      })
+      .catch((err) => {
+        setError(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    api
+      .getSavedGames(token)
+      .then((data) => {
+        setSavedGames(data);
       })
       .catch((err) => {
         setError(err);
@@ -210,6 +225,7 @@ function App() {
                     handleSignOut={handleSignOut}
                     isSignedOut={setIsSignedOut}
                     openUpdateProfileModal={openUpdateProfileModal}
+                    currentUser={currentUser}
                   />
                 </ProtectedRoute>
               }

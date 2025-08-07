@@ -24,7 +24,10 @@ function Header({
         <h1 className="header__title"></h1>
       </div>
       {currentUser ? (
-        <div className="header__current-user">{currentUser.name}</div>
+        <>
+          <img src={currentUser.avatarUrl} style={{ width: "50px" }}></img>
+          <div className="header__current-user">{currentUser.name}</div>
+        </>
       ) : (
         <div className="header__buttons">
           <button

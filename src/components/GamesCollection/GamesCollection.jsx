@@ -19,10 +19,6 @@ function GamesCollection() {
   //     }
   // };
 
-  const fetchSavedGames = async () => {
-    const token = localStorage.getItem("token");
-  };
-
   const fetchDeleteGame = async (gameId) => {
     const token = localStorage.getItem("token");
   };

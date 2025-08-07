@@ -22,6 +22,7 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import "./App.css";
 
 function App() {
+  const token = localStorage.getItem("token");
   // default state variables
   const [activeModal, setActiveModal] = useState("");
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -35,8 +36,7 @@ function App() {
   const [searchError, setSearchError] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
+  useEffect((token) => {
     if (token) {
       checkToken(token)
         .then((userData) => {
@@ -133,6 +133,36 @@ function App() {
     localStorage.removeItem("token");
   };
 
+  const handleProfile = (formData, token) => {
+    const { username, bio, avatarUrl } = formData;
+
+    console.log("Form data:", formData);
+    console.log("Extracted data:", { username, bio, avatarUrl });
+    console.log("Token exists:", !!token);
+
+    // API call
+    return fetch("http://localhost:3004/users/me", {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ username, bio, avatarUrl }),
+    }).then((response) => {
+      console.log("Response status:", response.status);
+      if (!response.ok) {
+        return response.json().then((data) => {
+          localStorage.setItem("token", data.token);
+          checkToken(data.token).then((userData) => {
+            setCurrentUser(userData);
+            setIsSignedIn(true);
+          });
+        });
+      }
+    });
+  };
+
   return (
     <BrowserRouter>
       <div className="app">
@@ -191,6 +221,7 @@ function App() {
               isOpen={activeModal === "update"}
               onClose={closeActiveModal}
               openUpdateProfileModal={openUpdateProfileModal}
+              handleProfile={handleProfile}
             />
           </div>
           <Footer />

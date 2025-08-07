@@ -22,7 +22,7 @@ function Main({ data, isLoading, error }) {
         </ul>
       </section>
       <section className="main__suggestions">
-        <h4 className="main__suggestions-title">You Might Also Like:</h4>
+        <h4 className="main__suggestions-title"></h4>
         <div className="main__suggestions-1"></div>
         <div className="main__suggestions-2"></div>
         <div className="main__suggestions-3"></div>

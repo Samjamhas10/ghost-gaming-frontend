@@ -67,7 +67,20 @@
   margin: 10px;
 }
 
-@media screen and (max-width: 627px) {
-  .search__bar {
+@media screen and (max-width: 775px) {
+  .search {
+    width: 390px;
+  }
+}
+
+@media screen and (max-width: 665px) {
+  .search {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .search {
+    width: 270px;
   }
 }

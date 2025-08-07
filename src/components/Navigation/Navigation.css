@@ -57,7 +57,14 @@
   opacity: 0.6;
 }
 
-/* @media screen and (max-width: 627px) {
+@media screen and (max-width: 920px) {
+  .nav__bar {
+    width: 90px;
+    flex-shrink: 0;
+  }
+}
+
+@media screen and (max-width: 627px) {
   .nav__bar {
     width: 50px;
     height: auto;
@@ -76,4 +83,4 @@
     width: 24px;
     height: 24px;
   }
-} */
+}

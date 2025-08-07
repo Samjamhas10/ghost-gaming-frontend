@@ -55,7 +55,46 @@
   font-family: Yellowtail, cursive;
 }
 
-@media screen and (max-width: 627px) {
-  .header__title {
+@media screen and (max-width: 872px) {
+  .header {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .header__buttons {
+  }
+
+  .header__signup {
+    width: 60px;
+    font-size: 14px;
+  }
+
+  .header__login {
+    width: 60px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .header {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .header__buttons {
+  }
+
+  .header__signup {
+    width: 50px;
+    height: 30px;
+    font-size: 10px;
+  }
+
+  .header__login {
+    width: 50px;
+    height: 30px;
+    font-size: 10px;
   }
 }

@@ -36,7 +36,7 @@ function App() {
   const [searchError, setSearchError] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
 
-  useEffect((token) => {
+  useEffect(() => {
     if (token) {
       checkToken(token)
         .then((userData) => {
@@ -49,6 +49,12 @@ function App() {
         });
     }
   }, []);
+
+  // useEffect(() => {
+  //   checkToken()
+  //     .then((user) => setCurrentUser(user))
+  //     .finally(() => setIsUserLoading(false));
+  // }, []);
 
   const openRegisterModal = () => {
     setActiveModal("signup");
@@ -133,13 +139,17 @@ function App() {
     localStorage.removeItem("token");
   };
 
-  const handleProfile = (formData, token) => {
+  const handleProfile = (formData) => {
     const { username, bio, avatarUrl } = formData;
 
     console.log("Form data:", formData);
     console.log("Extracted data:", { username, bio, avatarUrl });
     console.log("Token exists:", !!token);
 
+    if (!token) {
+      console.error("No authentication token available");
+      return Promise.reject("No authentication token available");
+    }
     // API call
     return fetch("http://localhost:3004/users/me", {
       method: "PATCH",
@@ -149,18 +159,19 @@ function App() {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({ username, bio, avatarUrl }),
-    }).then((response) => {
-      console.log("Response status:", response.status);
-      if (!response.ok) {
-        return response.json().then((data) => {
-          localStorage.setItem("token", data.token);
-          checkToken(data.token).then((userData) => {
-            setCurrentUser(userData);
-            setIsSignedIn(true);
-          });
-        });
-      }
-    });
+    })
+      .then((response) => {
+        console.log("Response status:", response.status);
+        if (!response.ok) {
+          throw new Error("Profile update failed");
+        }
+        return checkToken(token);
+      })
+      .then((userData) => {
+        console.log("Updated user data:", userData);
+        setCurrentUser(userData); // update the state
+        setIsSignedIn(true);
+      });
   };
 
   return (

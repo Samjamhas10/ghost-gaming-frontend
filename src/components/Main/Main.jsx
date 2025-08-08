@@ -6,9 +6,10 @@ import "./Main.css";
 function Main({ data, isLoading, error }) {
   return (
     <main className="main">
-      <div className="main__image"></div>
-      {/* <img src={mainGame} alt="Main Game" className="main__image" /> */}
-      <img src={overlayImage} alt="Space Marine" className="overlay__image" />
+      <div className="main__images">
+        <img src={mainGame} alt="Main Game" className="main__image" />
+        <img src={overlayImage} alt="Space Marine" className="overlay__image" />
+      </div>
       <section className="main__game-info">
         <h2 className="main__games-title">Recently Played Games:</h2>
         <Preloader isLoading={isLoading} />

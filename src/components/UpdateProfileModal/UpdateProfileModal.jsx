@@ -47,7 +47,6 @@ function UpdateProfileModal({ isOpen, onClose, handleProfile }) {
         placeholder="Bio"
       ></input>
       <label className="profile__modal">AvatarUrl*</label>
-
       <input
         className="modal__input"
         name="avatarUrl"

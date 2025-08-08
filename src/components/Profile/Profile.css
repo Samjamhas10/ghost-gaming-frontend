@@ -7,6 +7,9 @@
 .profile__sidebar {
 }
 
+.profile__background {
+}
+
 .profile__title {
   /* color: #067d71; */
 }
@@ -14,10 +17,15 @@
 .profile__image {
 }
 
+.profile__edit {
+  cursor: pointer;
+}
+
 .profile__logout {
   cursor: pointer;
 }
 
-.profile__edit {
-  cursor: pointer;
+.profile__avatar {
+  width: 80px;
+  height: 80px;
 }

@@ -14,7 +14,7 @@ function RegisterModal({
     email: "",
     password: "",
     name: "",
-    avatarUrl: "",
+    // avatarUrl: "",
   });
 
   const handleChange = (e) => {
@@ -32,7 +32,7 @@ function RegisterModal({
 
   return (
     <ModalWithForm isOpen={isOpen} onClose={onClose} onSubmit={onRegister}>
-      <label className="register__modal">Email</label>
+      <label className="register__modal">Email*</label>
       <input
         className="modal__input"
         id="email-register"
@@ -43,7 +43,7 @@ function RegisterModal({
         onChange={handleChange}
         required
       />
-      <label className="register__modal">Password</label>
+      <label className="register__modal">Password*</label>
       <input
         className="modal__input"
         id="password-register"
@@ -54,7 +54,7 @@ function RegisterModal({
         onChange={handleChange}
         required
       />
-      <label className="register__modal">Name</label>
+      <label className="register__modal">Name*</label>
       <input
         className="modal__input"
         id="name"

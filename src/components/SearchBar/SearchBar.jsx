@@ -29,7 +29,7 @@ function SearchBar({
       <button type="submit" className="search__icon-button">
         <img src={searchIcon} alt="search" />
       </button>
-
+      {searchPerformed && <div className="search__overlay"></div>}
       {searchLoading && <Preloader searchLoading={searchLoading} />}
       {!searchLoading && searchError && (
         <p className="search__error-data">
@@ -47,7 +47,7 @@ function SearchBar({
         !searchError &&
         searchData.length > 0 &&
         searchData.map((game) => (
-          <div key={game.id} className="search__game-outcome">
+          <div key={game.id} className="search__game-results">
             <h2 className="game__name">{game.name}</h2>
             {game.image && (
               <img src={game.image} alt="game image" className="game__image" />

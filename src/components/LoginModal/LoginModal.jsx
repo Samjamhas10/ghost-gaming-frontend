@@ -23,7 +23,7 @@ function LoginModal({ openRegisterModal, isOpen, onClose, handleSignIn }) {
 
   return (
     <ModalWithForm isOpen={isOpen} onClose={onClose} onSubmit={onLogin}>
-      <label className="login__modal">Email</label>
+      <label className="login__modal">Email*</label>
       <input
         className="modal__input"
         id="email"
@@ -34,7 +34,7 @@ function LoginModal({ openRegisterModal, isOpen, onClose, handleSignIn }) {
         onChange={handleChange}
         required
       ></input>
-      <label className="login__modal">Password</label>
+      <label className="login__modal">Password*</label>
       <input
         className="modal__input"
         id="password"

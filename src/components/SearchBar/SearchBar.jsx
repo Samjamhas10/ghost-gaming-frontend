@@ -42,18 +42,24 @@ function SearchBar({
         searchPerformed &&
         searchData.length === 0 && (
           <p className="search__error">Nothing Found</p>
-        )}
-      {!searchLoading &&
-        !searchError &&
-        searchData.length > 0 &&
-        searchData.map((game) => (
-          <div key={game.id} className="search__game-results">
-            <h2 className="game__name">{game.name}</h2>
-            {game.image && (
-              <img src={game.image} alt="game image" className="game__image" />
-            )}
-          </div>
-        ))}
+        )}{" "}
+      <div>
+        {!searchLoading &&
+          !searchError &&
+          searchData.length > 0 &&
+          searchData.map((game) => (
+            <div key={game.id} className="search__game-results">
+              <h2 className="game__name">{game.name}</h2>
+              {game.image && (
+                <img
+                  src={game.image}
+                  alt="game image"
+                  className="game__image"
+                />
+              )}
+            </div>
+          ))}
+      </div>
     </form>
   );
 }

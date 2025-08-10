@@ -2,19 +2,12 @@ import { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegisterModal.css";
 
-function RegisterModal({
-  openLoginModal,
-  isOpen,
-  onClose,
-  handleSignUp,
-  onSubmit,
-  openRegisterModal,
-}) {
+function RegisterModal({ openLoginModal, isOpen, onClose, handleSignUp }) {
   const [data, setData] = useState({
     email: "",
     password: "",
     name: "",
-    // avatarUrl: "",
+    avatarUrl: "",
   });
 
   const handleChange = (e) => {
@@ -74,7 +67,6 @@ function RegisterModal({
         placeholder="AvatarUrl"
         value={data.avatarUrl}
         onChange={handleChange}
-        required
       />
       <div className="register__buttons">
         <button type="submit" className="modal__submit modal__submit-signup">

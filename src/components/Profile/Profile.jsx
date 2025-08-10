@@ -1,7 +1,6 @@
 import GamesCollection from "../GamesCollection/GamesCollection";
 import UpdateProfileModal from "../UpdateProfileModal/UpdateProfileModal";
 import "./Profile.css";
-import defaultAvatar from "../../assets/ghost-gaming.png";
 
 function Profile({ handleSignOut, openUpdateProfileModal, currentUser }) {
   return (

@@ -22,7 +22,6 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import "./App.css";
 
 function App() {
-  const token = localStorage.getItem("token");
   // default state variables
   const [activeModal, setActiveModal] = useState("");
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -35,8 +34,10 @@ function App() {
   const [searchPerformed, setSearchPerformed] = useState(false);
   const [searchError, setSearchError] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
-  const [saveGames, setSavedGames] = useState(true);
+  const [saveGames, setSavedGames] = useState([]);
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
+  // runs everytime the token changes
   useEffect(() => {
     if (token) {
       checkToken(token)
@@ -49,13 +50,7 @@ function App() {
           localStorage.removeItem("token");
         });
     }
-  }, []);
-
-  // useEffect(() => {
-  //   checkToken()
-  //     .then((user) => setCurrentUser(user))
-  //     .finally(() => setIsUserLoading(false));
-  // }, []);
+  }, [token]);
 
   const openRegisterModal = () => {
     setActiveModal("signup");
@@ -73,6 +68,7 @@ function App() {
     setActiveModal("");
   };
 
+  // fetch recently played games
   useEffect(() => {
     api
       .getRecentlyPlayedGames()
@@ -87,20 +83,26 @@ function App() {
       });
   }, []);
 
+  // fetch saved games
   useEffect(() => {
+    if (!token) {
+      return;
+    }
     api
       .getSavedGames(token)
       .then((data) => {
         setSavedGames(data);
       })
       .catch((err) => {
+        // handle 401 return
         setError(err);
       })
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [token]);
 
+  // fetch search games
   const handleSearch = (query) => {
     if (!query) return;
     setSearchLoading(true);
@@ -122,7 +124,7 @@ function App() {
 
   const handleSignUp = ({ email, password, name, avatarUrl }) => {
     if (!email || !password || !name || !avatarUrl) {
-      return;
+      return; // Return some other message
     }
     register(email, password, name, avatarUrl)
       .then(() => {
@@ -152,6 +154,7 @@ function App() {
     setIsSignedIn(false);
     setCurrentUser(null);
     localStorage.removeItem("token");
+    setToken(null);
   };
 
   const handleProfile = (formData) => {
@@ -166,7 +169,7 @@ function App() {
       return Promise.reject("No authentication token available");
     }
     // API call
-    return fetch("http://localhost:3004/users/me", {
+    return fetch(`${BACKEND_URL}/users/me`, {
       method: "PATCH",
       headers: {
         Accept: "application/json",

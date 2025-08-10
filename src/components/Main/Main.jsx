@@ -13,7 +13,7 @@ function Main({ data, isLoading, error }) {
       <section className="main__game-info">
         <h2 className="main__games-title">Recently Played Games:</h2>
         <Preloader isLoading={isLoading} />
-        {error && <p>Error loading games: {error.message}</p>}
+        {/* {error && <p>Error loading games: {error.message}</p>} */}
         <ul className="main__recent-games">
           {data.map((game) => (
             <li key={game.id} className="game__card">

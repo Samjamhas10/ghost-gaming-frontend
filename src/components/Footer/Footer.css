@@ -68,7 +68,7 @@
 
 @media screen and (max-width: 675px) {
   .footer {
-    width: 65%;
+    width: 83%;
     flex-shrink: 0;
   }
 
@@ -85,10 +85,9 @@
   }
 }
 
-/* @media screen and (max-width: 375px) {
+@media screen and (max-width: 400px) {
   .footer {
-    width: 65%;
-    flex-shrink: 0;
+    width: 74%;
   }
 
   .footer__socials {
@@ -102,4 +101,4 @@
     text-align: center;
     font-size: 14px;
   }
-} */
+}

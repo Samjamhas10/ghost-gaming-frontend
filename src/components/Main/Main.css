@@ -1,6 +1,6 @@
 .main {
   color: white;
-  padding-right: 34px;
+  padding: 0 16px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -61,8 +61,10 @@
 }
 
 .main__recent-games {
-  width: 400px;
-  height: 400px;
+  font-size: 15px;
+  /* width: 400px; */
+  max-width: 100%;
+  /* height: 400px; */
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -72,8 +74,29 @@
 
 .main__headset {
   background-image: url(../../assets/Headset.png);
-  width: 357px;
-  height: 441px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 100%;
+  max-width: 500px;
+  height: 400px;
+  margin-left: 30px;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .main__headset {
+    max-width: 250px;
+    margin-left: 20px;
+  }
+
+  .main__games-title {
+    font-size: 20px;
+  }
+
+  .main__recent-games {
+    font-size: 12px;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -82,8 +105,38 @@
   }
 
   .main__image {
-    /* height: 60vw; */
     border-radius: 40px;
     aspect-ratio: 0.94;
+  }
+
+  .main__headset {
+    aspect-ratio: 1/1.2;
+    height: 242px;
+    margin: 20px 0 20px;
+  }
+
+  .main__games-title {
+    font-size: 16px;
+  }
+
+  .main__recent-games {
+    max-width: 100%;
+    font-size: 9px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .main__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .main__gmaes-title {
+    font-size: 12px;
+  }
+  .main__headset {
+    aspect-ratio: 1/1.2;
+    height: 190px;
   }
 }

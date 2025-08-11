@@ -12,7 +12,7 @@ function ModalWithForm({
   contentClass,
 }) {
   const closeModalOverlay = (evt) => {
-    evt.stopPropagation();
+    evt.stopPropagation(); // prevents modal from closing when clicking inside it
   };
 
   useEffect(() => {

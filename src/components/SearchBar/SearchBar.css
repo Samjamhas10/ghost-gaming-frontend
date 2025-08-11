@@ -79,14 +79,16 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
+.search__save-game {
+  background-image: url(../../assets/pin-icon.svg);
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
 .game__name {
   display: flex;
   flex-direction: column;
   margin: 10px;
 }
-
-/* @media screen and (max-width: 400px) {
-  .search {
-    height: 20px;
-  }
-} */

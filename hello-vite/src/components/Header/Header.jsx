@@ -22,7 +22,7 @@ function Header({
         searchPerformed={searchPerformed}
       />
       {currentUser ? (
-        <div>{currentUser.name}</div>
+        <div>{currentUser.username}</div>
       ) : (
         <div className="header__buttons">
           <button

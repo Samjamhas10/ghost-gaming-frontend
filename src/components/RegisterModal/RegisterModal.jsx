@@ -6,7 +6,7 @@ function RegisterModal({ openLoginModal, isOpen, onClose, handleSignUp }) {
   const [data, setData] = useState({
     email: "",
     password: "",
-    name: "",
+    username: "",
     avatarUrl: "",
   });
 
@@ -47,14 +47,14 @@ function RegisterModal({ openLoginModal, isOpen, onClose, handleSignUp }) {
         onChange={handleChange}
         required
       />
-      <label className="register__modal">Name*</label>
+      <label className="register__modal">Username*</label>
       <input
         className="modal__input"
-        id="name"
-        name="name"
+        id="username"
+        name="username"
         type="text"
-        placeholder="Name"
-        value={data.name}
+        placeholder="Username"
+        value={data.username}
         onChange={handleChange}
         required
       />

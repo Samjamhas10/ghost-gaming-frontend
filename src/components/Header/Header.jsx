@@ -21,13 +21,17 @@ function Header({
           searchError={searchError}
           searchPerformed={searchPerformed}
         />
-        <h1 className="header__title"></h1>
       </div>
       {currentUser ? (
-        <>
-          <img src={currentUser.avatarUrl} style={{ width: "50px" }}></img>
+
+        <div className="header__user">
+          <img
+            src={currentUser.avatarUrl}
+            style={{ width: "50px" }}
+            className="header__current-avatar"
+          ></img>
           <div className="header__current-user">{currentUser.name}</div>
-        </>
+        </div>
       ) : (
         <div className="header__buttons">
           <button

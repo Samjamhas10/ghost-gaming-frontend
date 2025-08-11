@@ -2,6 +2,8 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 // import auth & api
 import { register, authorize, checkToken } from "../../utils/auth";
 import api from "../../utils/IGDBApi";
@@ -34,7 +36,7 @@ function App() {
   const [searchPerformed, setSearchPerformed] = useState(false);
   const [searchError, setSearchError] = useState(null);
   const [currentUser, setCurrentUser] = useState(null);
-  const [saveGames, setSavedGames] = useState([]);
+  const [savedGames, setSavedGames] = useState([]);
   const [token, setToken] = useState(localStorage.getItem("token"));
 
   // runs everytime the token changes
@@ -122,11 +124,11 @@ function App() {
       });
   };
 
-  const handleSignUp = ({ email, password, name, avatarUrl }) => {
-    if (!email || !password || !name || !avatarUrl) {
+  const handleSignUp = ({ email, password, username, avatarUrl }) => {
+    if (!email || !password || !username || !avatarUrl) {
       return; // Return some other message
     }
-    register(email, password, name, avatarUrl)
+    register(email, password, username, avatarUrl)
       .then(() => {
         closeActiveModal();
         return handleSignIn({ email, password });
@@ -142,10 +144,10 @@ function App() {
       .then((data) => {
         localStorage.setItem("token", data.token);
         checkToken(data.token).then((userData) => {
-          setCurrentUser(userData);
+          setCurrentUser(data.token);
           setIsSignedIn(true);
+          closeActiveModal();
         });
-        closeActiveModal();
       })
       .catch(console.error);
   };
@@ -158,12 +160,9 @@ function App() {
   };
 
   const handleProfile = (formData) => {
+    console.log("Original formData:", formData);
     const { username, bio, avatarUrl } = formData;
-
-    console.log("Form data:", formData);
-    console.log("Extracted data:", { username, bio, avatarUrl });
-    console.log("Token exists:", !!token);
-
+    console.log("Sending to backend:", { name: username, bio, avatarUrl });
     if (!token) {
       console.error("No authentication token available");
       return Promise.reject("No authentication token available");
@@ -179,7 +178,6 @@ function App() {
       body: JSON.stringify({ username, bio, avatarUrl }),
     })
       .then((response) => {
-        console.log("Response status:", response.status);
         if (!response.ok) {
           throw new Error("Profile update failed");
         }
@@ -190,6 +188,32 @@ function App() {
         setCurrentUser(userData); // update the state
         setIsSignedIn(true);
       });
+  };
+
+  const handleGameLike = (token, gameId) => {
+    if (!isLiked) {
+      api
+        .saveGames(token, gameId)
+        .then(() => {
+          // Handle successful like here
+          // update isLiked state
+        })
+        .catch((err) => {
+          console.error(err);
+          alert("Could not like game. Please try again");
+        });
+    } else {
+      api
+        .deleteGames(token, gameId)
+        .then(() => {
+          // Handle successful unlike here
+          // update isLiked state
+        })
+        .catch((err) => {
+          console.error(err);
+          alert("Could not unlike game. Please try again");
+        });
+    }
   };
 
   return (
@@ -229,6 +253,7 @@ function App() {
                     isSignedOut={setIsSignedOut}
                     openUpdateProfileModal={openUpdateProfileModal}
                     currentUser={currentUser}
+                    savedGames={savedGames}
                   />
                 </ProtectedRoute>
               }

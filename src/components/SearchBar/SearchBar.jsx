@@ -76,6 +76,7 @@ function SearchBar({
                 className="search__game-results"
                 onClick={close}
               >
+                <div className="search__save-game"></div>
                 <h2 className="game__name">{game.name}</h2>
                 {game.image && (
                   <img

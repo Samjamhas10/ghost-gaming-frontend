@@ -64,11 +64,37 @@ function updateProfile({ token, username, bio, avatarUrl }) {
   }).then(checkResponse);
 }
 
+function addGameLike(token) {
+  return fetch(`${BACKEND_URL}/games/save`, {
+    method: "PATCH",
+    headers: {
+      Accept: "application/json",
+      "Client-ID": CLIENT_ID,
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ gameId }),
+  }).then(checkResponse);
+}
+
+function removeGameLike(token) {
+  return fetch(`${BACKEND_URL}/games/:gameId`, {
+    method: "PATCH",
+    headers: {
+      Accept: "application/json",
+      "Client-ID": CLIENT_ID,
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ gameId }),
+  }).then(checkResponse);
+}
+
 const api = {
   searchGames,
   getRecentlyPlayedGames,
   getSavedGames,
   updateProfile,
+  addGameLike,
+  removeGameLike,
 };
 
 export default api;

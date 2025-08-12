@@ -22,12 +22,12 @@ export const checkToken = (token) => {
   }).then(checkResponse);
 };
 
-export const register = (email, password, name, avatarUrl) => {
+export const register = (email, password, username, avatarUrl) => {
   return fetch(`${BASE_URL}/users/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email, password, name, avatarUrl }),
+    body: JSON.stringify({ email, password, username, avatarUrl }),
   }).then(checkResponse);
 };

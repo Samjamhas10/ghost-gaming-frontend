@@ -41,8 +41,6 @@ This is the frontend for the Ghost Gaming platform, built with React and Vite. I
 
 ## Technologies Used
 
-### Frontend:
-
 - React.js with Vite
 - React Router for navigation
 - CSS3 for responsive design

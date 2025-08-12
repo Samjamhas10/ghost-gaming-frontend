@@ -3,7 +3,7 @@ import "./GamesCollection.css";
 import Preloader from "../Preloader/Preloader";
 
 function GamesCollection() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsloading] = useState(false);
   const [collections, setCollections] = useState([]);
 
   const handleSearch = async (game, value) => {
@@ -32,7 +32,7 @@ function GamesCollection() {
         </div>
         <div className="collection__image-1"></div>
       </section>
-      <p className="coming__soon">Coming Soon 🚧</p>
+      <p className="coming__soon">Coming Soon!</p>
     </div>
   );
 }

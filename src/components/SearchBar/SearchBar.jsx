@@ -9,25 +9,25 @@ function SearchBar({
   searchLoading,
   searchError,
   searchPerformed,
-  onClose,
 }) {
   const [query, setQuery] = useState(""); // store what is typed
 
-  const closeSearchResultsModal = (evt) => {
-    evt.stopPropagation();
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (evt) => {
-      if (isOpen) {
-        document.addEventListener("mousedown", handleClickOutside);
-        onClose();
-      }
-    };
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [onClose]);
+  // TODO: Implement escape/outside click functionality for search results
+  // const closeSearchResultsModal = (evt) => {
+  //   setQuery("");
+  //   handleSearch("");
+  // };
+  // useEffect(() => {
+  //   const handleClickOutside = (evt) => {
+  //     if (isOpen) {
+  //       document.addEventListener("mousedown", handleClickOutside);
+  //       onClose();
+  //     }
+  //   };
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, [onClose]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -39,7 +39,7 @@ function SearchBar({
       {searchPerformed && (
         <div
           className="search__overlay"
-          onClick={closeSearchResultsModal}
+          // onClick={closeSearchResultsModal} // TODO
         ></div>
       )}
       <form className="search" onSubmit={handleSubmit}>
@@ -66,7 +66,7 @@ function SearchBar({
           searchData.length === 0 && (
             <p className="search__error">Nothing Found</p>
           )}{" "}
-        <div>
+        <div className="search__results-overlay">
           {!searchLoading &&
             !searchError &&
             searchData.length > 0 &&
@@ -74,7 +74,7 @@ function SearchBar({
               <div
                 key={game.id}
                 className="search__game-results"
-                onClick={close}
+                // onClick={close}
               >
                 <div className="search__save-game"></div>
                 <h2 className="game__name">{game.name}</h2>

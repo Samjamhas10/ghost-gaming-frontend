@@ -144,7 +144,7 @@ function App() {
       .then((data) => {
         localStorage.setItem("token", data.token);
         checkToken(data.token).then((userData) => {
-          setCurrentUser(data.token);
+          setCurrentUser(userData);
           setIsSignedIn(true);
           closeActiveModal();
         });
@@ -190,35 +190,32 @@ function App() {
       });
   };
 
-  const handleGameLike = (token, gameId) => {
-    if (!isLiked) {
-      api
-        .saveGames(token, gameId)
-        .then(() => {
-          // Handle successful like here
-          // update isLiked state
-        })
-        .catch((err) => {
-          console.error(err);
-          alert("Could not like game. Please try again");
-        });
-    } else {
-      api
-        .deleteGames(token, gameId)
-        .then(() => {
-          // Handle successful unlike here
-          // update isLiked state
-        })
-        .catch((err) => {
-          console.error(err);
-          alert("Could not unlike game. Please try again");
-        });
-    }
-  };
-
-  const fetchDeleteGame = async (gameId) => {
-    const token = localStorage.getItem("token");
-  };
+  // TODO: Implement save/unsave game functionality
+  // const handleGameLike = (token, gameId) => {
+  //   if (!isLiked) {
+  //     api
+  //       .saveGames(token, gameId)
+  //       .then(() => {
+  //         // Handle successful like here
+  //         // update isLiked state
+  //       })
+  //       .catch((err) => {
+  //         console.error(err);
+  //         alert("Could not like game. Please try again");
+  //       });
+  //   } else {
+  //     api
+  //       .deleteGames(token, gameId)
+  //       .then(() => {
+  //         // Handle successful unlike here
+  //         // update isLiked state
+  //       })
+  //       .catch((err) => {
+  //         console.error(err);
+  //         alert("Could not unlike game. Please try again");
+  //       });
+  //   }
+  // };
 
   return (
     <BrowserRouter>

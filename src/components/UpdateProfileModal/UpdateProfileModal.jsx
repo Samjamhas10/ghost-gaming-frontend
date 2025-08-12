@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { checkResponse } from "../../utils/IGDBApi";
+// import { checkResponse } from "../../utils/IGDBApi";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./UpdateProfileModal.css";
 

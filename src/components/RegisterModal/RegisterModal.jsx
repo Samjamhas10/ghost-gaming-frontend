@@ -50,7 +50,7 @@ function RegisterModal({ openLoginModal, isOpen, onClose, handleSignUp }) {
       <label className="register__modal">Username*</label>
       <input
         className="modal__input"
-        id="username"
+        id="username-register"
         name="username"
         type="text"
         placeholder="Username"
@@ -61,7 +61,7 @@ function RegisterModal({ openLoginModal, isOpen, onClose, handleSignUp }) {
       <label className="register__modal">AvatarUrl</label>
       <input
         className="modal__input"
-        id="avatarUrl"
+        id="avatarUrl-register"
         name="avatarUrl"
         type="url"
         placeholder="AvatarUrl"

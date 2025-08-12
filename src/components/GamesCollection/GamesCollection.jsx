@@ -6,10 +6,6 @@ function GamesCollection() {
   const [isLoading, setIsLoading] = useState(false);
   const [collections, setCollections] = useState([]);
 
-  const fetchDeleteGame = async (gameId) => {
-    const token = localStorage.getItem("token");
-  };
-
   const handleSearch = async (game, value) => {
     setIsLoading(true);
     try {
@@ -36,6 +32,7 @@ function GamesCollection() {
         </div>
         <div className="collection__image-1"></div>
       </section>
+      <p className="coming__soon">Coming Soon 🚧</p>
     </div>
   );
 }

@@ -162,7 +162,7 @@ function App() {
   const handleProfile = (formData) => {
     console.log("Original formData:", formData);
     const { username, bio, avatarUrl } = formData;
-    console.log("Sending to backend:", { name: username, bio, avatarUrl });
+    console.log("Sending to backend:", { username, bio, avatarUrl });
     if (!token) {
       console.error("No authentication token available");
       return Promise.reject("No authentication token available");
@@ -214,6 +214,10 @@ function App() {
           alert("Could not unlike game. Please try again");
         });
     }
+  };
+
+  const fetchDeleteGame = async (gameId) => {
+    const token = localStorage.getItem("token");
   };
 
   return (

@@ -30,7 +30,7 @@ function Header({
             style={{ width: "50px" }}
             className="header__current-avatar"
           ></img>
-          <div className="header__current-user">{currentUser.name}</div>
+          <div className="header__current-user">{currentUser.username}</div>
         </div>
       ) : (
         <div className="header__buttons">

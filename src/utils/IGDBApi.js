@@ -78,7 +78,7 @@ function addGameLike(token) {
 
 function removeGameLike(token) {
   return fetch(`${BACKEND_URL}/games/:gameId`, {
-    method: "PATCH",
+    method: "DELETE",
     headers: {
       Accept: "application/json",
       "Client-ID": CLIENT_ID,

@@ -1,7 +1,7 @@
 const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
 const ACCESS_TOKEN = import.meta.env.VITE_ACCESS_TOKEN;
-const API_URL = import.meta.env.VITE_API_URL;
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+const API_URL = "http://api.ghost-app.jumpingcrab.com";
+const BACKEND_URL = "http://api.ghost-app.jumpingcrab.com";
 
 export const checkResponse = (res) => {
   if (res.ok) {
@@ -64,7 +64,7 @@ function updateProfile({ token, username, bio, avatarUrl }) {
   }).then(checkResponse);
 }
 
-// TODO: implement api for handleGameLike 
+// TODO: implement api for handleGameLike
 // function addGameLike(token) {
 //   return fetch(`${BACKEND_URL}/games/save`, {
 //     method: "PATCH",

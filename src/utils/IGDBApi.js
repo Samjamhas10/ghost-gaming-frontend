@@ -65,7 +65,7 @@ function updateProfile({ token, username, bio, avatarUrl }) {
 }
 
 // TODO: implement api for handleGameLike
-// function addGameLike(token) {
+// function addGameLike(token, gameId) {
 //   return fetch(`${BACKEND_URL}/games/save`, {
 //     method: "PATCH",
 //     headers: {

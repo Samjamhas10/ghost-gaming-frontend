@@ -9,6 +9,7 @@ function SearchBar({
   searchLoading,
   searchError,
   searchPerformed,
+  // handleSaveGame
 }) {
   const [query, setQuery] = useState(""); // store what is typed
 
@@ -28,6 +29,7 @@ function SearchBar({
   //     document.removeEventListener("mousedown", handleClickOutside);
   //   };
   // }, [onClose]);
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -76,7 +78,7 @@ function SearchBar({
                 className="search__game-results"
                 // onClick={close}
               >
-                <div className="search__save-game"></div>
+                {/* <div className="search__save-game" onClick={()=> handleSaveGame(game)} ></div> */} 
                 <h2 className="game__name">{game.name}</h2>
                 {game.image && (
                   <img

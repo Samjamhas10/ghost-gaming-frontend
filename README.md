@@ -93,5 +93,5 @@ This is the frontend for the Ghost Gaming platform, built with React and Vite. I
 
 ## Domain Name
 
-- Frontend + Backend: http://ghost-app.jumpingcrab.com/
-- API Base URL: http://api.ghost-app.jumpingcrab.com/
+- Frontend + Backend: https://ghost-app.jumpingcrab.com/
+- API Base URL: https://api.ghost-app.jumpingcrab.com/

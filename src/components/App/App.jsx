@@ -191,11 +191,14 @@ function App() {
   };
 
   // TODO: Implement save/unsave game functionality
-  // const handleGameLike = (token, gameId) => {
+  // const handleGameLike = (game) => {
+  //   console.log(game);
+  //   const isLiked = savedGames.some((savedGame) => savedGame.id === game.id);
   //   if (!isLiked) {
   //     api
-  //       .saveGames(token, gameId)
+  //       .addGameLike(token, game.id)
   //       .then(() => {
+  //         console.log("Saving game:", game.id);
   //         // Handle successful like here
   //         // update isLiked state
   //       })
@@ -205,8 +208,9 @@ function App() {
   //       });
   //   } else {
   //     api
-  //       .deleteGames(token, gameId)
+  //       .deleteGames(token, game.id)
   //       .then(() => {
+  //         console.log("Unsaving game:", game.id);
   //         // Handle successful unlike here
   //         // update isLiked state
   //       })
@@ -231,6 +235,7 @@ function App() {
             searchLoading={searchLoading}
             searchError={searchError}
             searchPerformed={searchPerformed}
+            // handleSaveGame={handleGameLike}
           />
           <Preloader isLoading={searchLoading} onSearch={handleSearch} />
           <Routes>

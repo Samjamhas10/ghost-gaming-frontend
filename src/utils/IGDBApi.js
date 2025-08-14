@@ -1,7 +1,7 @@
 const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
 const ACCESS_TOKEN = import.meta.env.VITE_ACCESS_TOKEN;
-const API_URL = "http://api.ghost-app.jumpingcrab.com";
-const BACKEND_URL = "http://api.ghost-app.jumpingcrab.com";
+const API_URL = import.meta.env.VITE_BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const checkResponse = (res) => {
   if (res.ok) {

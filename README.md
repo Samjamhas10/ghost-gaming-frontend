@@ -8,6 +8,7 @@ This is the frontend for the Ghost Gaming platform, built with React and Vite. I
 - [Project Features](#project-features)
 - [Technologies Used](#technologies-used)
 - [Plan for Improving the Project](#plan-for-improving-the-project)
+- [Backend Implementation](#backend-implementation)
 - [Screenshots](#screenshots)
 - [Live Demo](#live-demo)
 - [Deployment Instructions](#deployment-instructions)
@@ -55,11 +56,27 @@ This is the frontend for the Ghost Gaming platform, built with React and Vite. I
 
 - Expand search functionality with filters, and integrate social sharing features so users can share games or achievements with friends/family.
 
+## Backend Implementation (Stage 2)
+
+- Backend API URL: https://api.ghost-app.jumpingcrab.com
+- Backend repository: [https://github.com/Samjamhas10/ghost-gaming-backend.git]
+
+- User authentication
+- CORS configured for cross-origin requests
+
 ## Screenshots
 
-// TODO: Add before final submission
+## Ghost Homepage
 
-- (include screenshots of home/profile route, game search, and mobile view)
+![Ghost Homepage Screenshot](ghost-homepage.png)
+
+## Ghost Main/Footer
+
+![Ghost Main & Footer Screenshot](ghost-main:footer.png)
+
+## Profile Section
+
+![Profile Section](profile-section.png)
 
 ## Live Demo
 
@@ -90,6 +107,10 @@ This is the frontend for the Ghost Gaming platform, built with React and Vite. I
    `npm run dev`
 
 ## System Requirements
+
+- Node.js: v23.11.0 or higher
+- npm: v10.9.2 or higher
+- Modern web browser (Chrome, FireFox, Safari)
 
 ## Domain Name
 

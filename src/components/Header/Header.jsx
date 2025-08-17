@@ -10,7 +10,7 @@ function Header({
   searchLoading,
   searchError,
   searchPerformed,
-  // handleSaveGame,
+  handleSaveGame,
 }) {
   return (
     <header className="header">
@@ -21,7 +21,7 @@ function Header({
           searchLoading={searchLoading}
           searchError={searchError}
           searchPerformed={searchPerformed}
-          // handleSaveGame={handleSaveGame}
+          handleSaveGame={handleSaveGame}
         />
       </div>
       {currentUser ? (

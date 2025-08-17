@@ -68,11 +68,11 @@ This is the frontend for the Ghost Gaming platform, built with React and Vite. I
 
 ## Ghost Homepage
 
-![Ghost Homepage Screenshot](ghost-homepage.png)
+![Ghost Homepage](ghost-homepage.png)
 
 ## Ghost Main/Footer
 
-![Ghost Main & Footer Screenshot](ghost-main:footer.png)
+![Ghost Main & Footer](ghost-main:footer.png)
 
 ## Profile Section
 
@@ -80,9 +80,8 @@ This is the frontend for the Ghost Gaming platform, built with React and Vite. I
 
 ## Live Demo
 
-- Coming soon: deployment in progress..
-
-(insert live link once deployed to Netlify, GitHub pages, etc)
+- https://ghost-app.jumpingcrab.com/
+- coming soon ..
 
 ## Deployment Instructions
 

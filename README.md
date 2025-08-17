@@ -72,7 +72,11 @@ This is the frontend for the Ghost Gaming platform, built with React and Vite. I
 
 ## Ghost Main/Footer
 
-![Ghost Main & Footer](ghost-main:footer.png)
+![Ghost Main & Footer](ghost-main-footer.png)
+
+## Logged In 
+
+![Logged In](logged-in.png)
 
 ## Profile Section
 

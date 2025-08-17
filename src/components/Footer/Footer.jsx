@@ -7,6 +7,7 @@ function Footer() {
       <section className="footer__socials">
         <a
           href="https://www.facebook.com"
+          target="_blank"
           className="footer__icons"
           aria-label="Facebook"
         >
@@ -15,6 +16,7 @@ function Footer() {
         </a>
         <a
           href="https://www.discord.com"
+          target="_blank"
           className="footer__icons"
           aria-label="Discord"
         >
@@ -23,6 +25,7 @@ function Footer() {
         </a>
         <a
           href="https://www.youtube.com"
+          target="_blank"
           className="footer__icons"
           aria-label="Youtube"
         >
@@ -31,6 +34,7 @@ function Footer() {
         </a>
         <a
           href="https://www.twitch.com"
+          target="_blank"
           className="footer__icons"
           aria-label="Twitch"
         >

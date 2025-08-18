@@ -27,7 +27,7 @@ function App() {
   // default state variables
   const [activeModal, setActiveModal] = useState("");
   const [isSignedIn, setIsSignedIn] = useState(false);
-  const [isSignedOut, setIsSignedOut] = useState(false);
+  // const [isSignedOut, setIsSignedOut] = useState(false);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -256,7 +256,6 @@ function App() {
                 <ProtectedRoute isSignedIn={isSignedIn}>
                   <Profile
                     handleSignOut={handleSignOut}
-                    isSignedOut={setIsSignedOut}
                     openUpdateProfileModal={openUpdateProfileModal}
                     currentUser={currentUser}
                     savedGames={savedGames}

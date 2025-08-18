@@ -3,19 +3,22 @@ import "./GamesCollection.css";
 import Preloader from "../Preloader/Preloader";
 
 function GamesCollection() {
-  const [isLoading, setIsloading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [collections, setCollections] = useState([]);
 
-  const handleSearch = async (game, value) => {
+  const handleSearch = async () => {
     setIsLoading(true);
     try {
-      // API CALL
+      const response = await fetch();
+      const data = await response.json();
+      setCollections(data);
     } catch (err) {
       console.error("Error fetching saved games");
     } finally {
       setIsLoading(false);
     }
   };
+
   return (
     <div>
       <Preloader isLoading={isLoading} onSearch={handleSearch} />

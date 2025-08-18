@@ -1,6 +1,6 @@
 import "./Preloader.css";
 
-function Preloader({ isLoading, onSearch }) {
+function Preloader({ isLoading }) {
   return (
     <>
       {isLoading && (

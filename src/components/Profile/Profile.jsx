@@ -2,7 +2,7 @@ import GamesCollection from "../GamesCollection/GamesCollection";
 import UpdateProfileModal from "../UpdateProfileModal/UpdateProfileModal";
 import "./Profile.css";
 
-function Profile({ handleSignOut, openUpdateProfileModal, currentUser }) {
+function Profile({ handleSignOut, openUpdateProfileModal, currentUser, }) {
   return (
     <div className="profile">
       <section className="profile__sidebar">

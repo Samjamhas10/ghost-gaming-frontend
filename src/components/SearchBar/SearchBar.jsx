@@ -10,25 +10,28 @@ function SearchBar({
   searchError,
   searchPerformed,
   handleSaveGame,
+  isOpen,
+  onClose,
 }) {
   const [query, setQuery] = useState(""); // store what is typed
 
   // TODO: Implement escape/outside click functionality for search results
-  // const closeSearchResultsModal = (evt) => {
-  //   setQuery("");
-  //   handleSearch("");
-  // };
-  // useEffect(() => {
-  //   const handleClickOutside = (evt) => {
-  //     if (isOpen) {
-  //       document.addEventListener("mousedown", handleClickOutside);
-  //       onClose();
-  //     }
-  //   };
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, [onClose]);
+  const closeSearchResultsModal = () => {
+    setQuery("");
+    handleSearch("");
+  };
+
+  useEffect(() => {
+    const handleClickOutside = () => {
+      if (isOpen) {
+        document.addEventListener("mousedown", handleClickOutside);
+        onClose();
+      }
+    };
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen, onClose]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -40,7 +43,7 @@ function SearchBar({
       {searchPerformed && (
         <div
           className="search__overlay"
-          // onClick={closeSearchResultsModal} // TODO
+          onClick={closeSearchResultsModal} // TODO
         ></div>
       )}
       <form className="search" onSubmit={handleSubmit}>
@@ -75,7 +78,7 @@ function SearchBar({
               <div
                 key={game.id}
                 className="search__game-results"
-                // onClick={close}
+                onClick={close}
               >
                 <div
                   className="search__save-game"

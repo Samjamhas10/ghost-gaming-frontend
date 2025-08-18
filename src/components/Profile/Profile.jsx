@@ -1,5 +1,5 @@
 import GamesCollection from "../GamesCollection/GamesCollection";
-import UpdateProfileModal from "../UpdateProfileModal/UpdateProfileModal";
+// import UpdateProfileModal from "../UpdateProfileModal/UpdateProfileModal";
 import "./Profile.css";
 
 function Profile({ handleSignOut, openUpdateProfileModal, currentUser, }) {

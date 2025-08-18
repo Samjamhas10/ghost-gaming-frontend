@@ -54,7 +54,7 @@ function LoginModal({ openRegisterModal, isOpen, onClose, handleSignIn }) {
           className="modal__submit modal__submit-register"
           onClick={openRegisterModal}
         >
-          Don't Have An Account? Sign Up Here
+          Don&apos;t Have An Account? Sign Up Here
         </button>
       </div>
     </ModalWithForm>

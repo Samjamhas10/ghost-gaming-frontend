@@ -39,14 +39,14 @@
 .header__user-info {
   display: flex;
   align-items: center;
-  gap: 10; 
+  gap: 10;
   flex-shrink: 0;
 }
 
 .header__current-user {
   color: #fff;
   font-size: 30px;
-  font-family: Yellowtail, cursive;
+  font-family: Yellowtail, cursive, sans-serif;
   margin-left: 20px;
 }
 

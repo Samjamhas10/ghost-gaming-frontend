@@ -28,6 +28,7 @@ function Header({
         <div className="header__user">
           <img
             src={currentUser.avatarUrl}
+            alt="Current User's Avatar"
             style={{ width: "50px" }}
             className="header__current-avatar"
           ></img>

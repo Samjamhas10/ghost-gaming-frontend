@@ -19,8 +19,8 @@
   display: inline-block;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   text-align: center;
   cursor: pointer;
 }
@@ -33,7 +33,7 @@
 }
 
 .nav__home {
-  background-image: url(../../assets/home-icon.png);
+  background-image: url(../../assets/home-icon.svg);
 }
 
 .nav__home:hover {

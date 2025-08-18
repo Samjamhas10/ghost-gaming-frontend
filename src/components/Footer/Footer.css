@@ -1,5 +1,5 @@
 .footer {
-  font-family: Yellowtail, cursive;
+  font-family: Yellowtail, cursive, sans-serif;
   width: 96%;
 }
 
@@ -17,7 +17,8 @@
 }
 
 .footer__icons:hover {
-  opacity: 0.7;
+  color: #2e968a;
+  transition: color 0.4s ease;
 }
 
 .footer__copyright {

@@ -1,5 +1,11 @@
 @font-face {
   src: url("../assets/yellowtail-regular.woff") format("woff");
-  font-family: Yellowtail, cursive;
+  font-family: Yellowtail;
+  font-weight: 500;
+}
+
+@font-face {
+  src: url("../assets/Poppins-regular.woff") format("woff");
+  font-family: "Poppins";
   font-weight: 500;
 }

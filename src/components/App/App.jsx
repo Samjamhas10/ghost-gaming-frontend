@@ -27,7 +27,6 @@ function App() {
   // default state variables
   const [activeModal, setActiveModal] = useState("");
   const [isSignedIn, setIsSignedIn] = useState(false);
-  // const [isSignedOut, setIsSignedOut] = useState(false);
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -106,7 +105,6 @@ function App() {
 
   // fetch search games
   const handleSearch = (query) => {
-    if (!query) return;
     setSearchLoading(true);
     api
       .searchGames(query)
@@ -121,6 +119,7 @@ function App() {
       })
       .finally(() => {
         setSearchLoading(false);
+        // setSearchPerformed(false);
       });
   };
 
@@ -208,7 +207,7 @@ function App() {
         });
     } else {
       api
-        .deleteGames(token, game.id)
+        .removeGameLike(token, game.id)
         .then(() => {
           console.log("Unsaving game:", game.id);
           // Handle successful unlike here

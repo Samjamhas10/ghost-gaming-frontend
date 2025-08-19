@@ -1,7 +1,4 @@
-const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
-// const ACCESS_TOKEN = import.meta.env.VITE_ACCESS_TOKEN;
-// const API_URL = import.meta.env.VITE_BACKEND_URL;
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+import { CLIENT_ID, BACKEND_URL } from "./constants";
 
 export const checkResponse = (res) => {
   if (res.ok) {

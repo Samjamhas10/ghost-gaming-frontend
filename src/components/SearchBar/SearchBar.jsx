@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Preloader from "../Preloader/Preloader";
 import "./SearchBar.css";
 import searchIcon from "../../assets/search-icon.svg";
@@ -10,28 +10,15 @@ function SearchBar({
   searchError,
   searchPerformed,
   handleSaveGame,
-  isOpen,
-  onClose,
 }) {
   const [query, setQuery] = useState(""); // store what is typed
 
   // TODO: Implement escape/outside click functionality for search results
   const closeSearchResultsModal = () => {
+    console.log("closeSearchResultsModal called");
     setQuery("");
     handleSearch("");
   };
-
-  useEffect(() => {
-    const handleClickOutside = () => {
-      if (isOpen) {
-        document.addEventListener("mousedown", handleClickOutside);
-        onClose();
-      }
-    };
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isOpen, onClose]);
 
   const handleSubmit = (event) => {
     event.preventDefault();

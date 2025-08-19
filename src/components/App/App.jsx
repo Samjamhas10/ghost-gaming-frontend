@@ -123,6 +123,14 @@ function App() {
       });
   };
 
+  // TODO: Implement escape/outside click functionality for search results
+  const closeSearchResultsModal = () => {
+    console.log("closeSearchResultsModal called");
+    //setQuery("");
+    //handleSearch("");
+    setSearchPerformed(false);
+  };
+
   const handleSignUp = ({ email, password, username, avatarUrl }) => {
     if (!email || !password || !username || !avatarUrl) {
       return; // Return some other message
@@ -235,6 +243,7 @@ function App() {
             searchError={searchError}
             searchPerformed={searchPerformed}
             handleSaveGame={handleGameLike}
+            closeSearchResultsModal={closeSearchResultsModal}
           />
           <Preloader isLoading={searchLoading} onSearch={handleSearch} />
           <Routes>

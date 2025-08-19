@@ -63,7 +63,7 @@ function updateProfile({ token, username, bio, avatarUrl }) {
 
 // TODO: implement api for handleGameLike
 function addGameLike(token, gameId) {
-  return fetch(`${BACKEND_URL}/games/save`, {
+  return fetch(`${BACKEND_URL}/save`, {
     method: "PATCH",
     headers: {
       Accept: "application/json",
@@ -75,7 +75,7 @@ function addGameLike(token, gameId) {
 }
 
 function removeGameLike(token, gameId) {
-  return fetch(`${BACKEND_URL}/games/${gameId}`, {
+  return fetch(`${BACKEND_URL}/${gameId}`, {
     method: "DELETE",
     headers: {
       Accept: "application/json",

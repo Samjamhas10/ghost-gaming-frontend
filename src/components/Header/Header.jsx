@@ -11,6 +11,7 @@ function Header({
   searchError,
   searchPerformed,
   handleSaveGame,
+  closeSearchResultsModal,
 }) {
   return (
     <header className="header">
@@ -22,6 +23,7 @@ function Header({
           searchError={searchError}
           searchPerformed={searchPerformed}
           handleSaveGame={handleSaveGame}
+          closeSearchResultsModal={closeSearchResultsModal}
         />
       </div>
       {currentUser ? (

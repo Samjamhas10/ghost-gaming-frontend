@@ -10,19 +10,19 @@ function SearchBar({
   searchError,
   searchPerformed,
   handleSaveGame,
+  closeSearchResultsModal,
 }) {
   const [query, setQuery] = useState(""); // store what is typed
-
-  // TODO: Implement escape/outside click functionality for search results
-  const closeSearchResultsModal = () => {
-    console.log("closeSearchResultsModal called");
-    setQuery("");
-    handleSearch("");
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     handleSearch(query);
+  };
+
+  const closeSearchResults = () => {
+    setQuery("");
+    // handleSearch("");
+    closeSearchResultsModal();
   };
 
   return (
@@ -30,7 +30,7 @@ function SearchBar({
       {searchPerformed && (
         <div
           className="search__overlay"
-          onClick={closeSearchResultsModal} // TODO
+          onClick={closeSearchResults} // TODO
         ></div>
       )}
       <form className="search" onSubmit={handleSubmit}>
@@ -57,31 +57,29 @@ function SearchBar({
           searchData.length === 0 && (
             <p className="search__error">Nothing Found</p>
           )}{" "}
-        <div className="search__results-overlay">
-          {!searchLoading &&
-            !searchError &&
-            searchData.length > 0 &&
-            searchData.map((game) => (
-              <div
-                key={game.id}
-                className="search__game-results"
-                onClick={close}
-              >
-                <div
-                  className="search__save-game"
-                  onClick={() => handleSaveGame(game)}
-                ></div>
-                <h2 className="game__name">{game.name}</h2>
-                {game.image && (
-                  <img
-                    src={game.image}
-                    alt="game image"
-                    className="game__image"
-                  />
-                )}
-              </div>
-            ))}
-        </div>
+        {searchPerformed && (
+          <div className="search__results-overlay">
+            {!searchLoading &&
+              !searchError &&
+              searchData.length > 0 &&
+              searchData.map((game) => (
+                <div key={game.id} className="search__game-results">
+                  <div
+                    className="search__save-game"
+                    onClick={() => handleSaveGame(game)}
+                  ></div>
+                  <h2 className="game__name">{game.name}</h2>
+                  {game.image && (
+                    <img
+                      src={game.image}
+                      alt="game image"
+                      className="game__image"
+                    />
+                  )}
+                </div>
+              ))}
+          </div>
+        )}
       </form>
     </>
   );

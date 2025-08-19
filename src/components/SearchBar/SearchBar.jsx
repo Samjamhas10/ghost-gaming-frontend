@@ -27,7 +27,7 @@ function SearchBar({
 
   return (
     <>
-      {searchPerformed && (
+      {searchPerformed && !searchError && searchData.length > 0 && (
         <div
           className="search__overlay"
           onClick={closeSearchResults} // TODO
@@ -57,7 +57,7 @@ function SearchBar({
           searchData.length === 0 && (
             <p className="search__error">Nothing Found</p>
           )}{" "}
-        {searchPerformed && (
+        {searchPerformed && !searchError && searchData.length > 0 && (
           <div className="search__results-overlay">
             {!searchLoading &&
               !searchError &&

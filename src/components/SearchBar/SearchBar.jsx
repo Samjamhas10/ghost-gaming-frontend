@@ -58,12 +58,12 @@ function SearchBar({
             <p className="search__error">Nothing Found</p>
           )}{" "}
         {searchPerformed && !searchError && searchData.length > 0 && (
-          <div className="search__results-overlay">
+          <ul className="search__results-overlay">
             {!searchLoading &&
               !searchError &&
               searchData.length > 0 &&
               searchData.map((game) => (
-                <div key={game.id} className="search__game-results">
+                <li key={game.id} className="search__game-results">
                   <div
                     className="search__save-game"
                     onClick={() => handleSaveGame(game)}
@@ -76,9 +76,9 @@ function SearchBar({
                       className="game__image"
                     />
                   )}
-                </div>
+                </li>
               ))}
-          </div>
+          </ul>
         )}
       </form>
     </>

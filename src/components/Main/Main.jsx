@@ -5,7 +5,7 @@ import "./Main.css";
 
 function Main({ data, isLoading }) {
   return (
-    <div className="main">
+    <main className="main">
       <div className="main__images">
         <img src={mainGame} alt="Main Game" className="main__image" />
         <img src={overlayImage} alt="Space Marine" className="overlay__image" />
@@ -24,7 +24,7 @@ function Main({ data, isLoading }) {
         </section>
         <div className="main__headset"></div>
       </div>
-    </div>
+    </main>
   );
 }
 

@@ -3,7 +3,7 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <div className="footer">
+    <footer className="footer">
       <section className="footer__socials">
         <a
           href="https://www.facebook.com"
@@ -45,7 +45,7 @@ function Footer() {
       <p className="footer__copyright">
         @2025 Ghost Games. All rights reserved.
       </p>
-    </div>
+    </footer>
   );
 }
 

@@ -9,7 +9,7 @@ function SearchBar({
   searchLoading,
   searchError,
   searchPerformed,
-  handleSaveGame,
+  // handleSaveGame,
   closeSearchResultsModal,
 }) {
   const [query, setQuery] = useState(""); // store what is typed
@@ -64,10 +64,10 @@ function SearchBar({
               searchData.length > 0 &&
               searchData.map((game) => (
                 <li key={game.id} className="search__game-results">
-                  <div
+                  {/* TODO <div
                     className="search__save-game"
                     onClick={() => handleSaveGame(game)}
-                  ></div>
+                  ></div> */} 
                   <h2 className="game__name">{game.name}</h2>
                   {game.image && (
                     <img

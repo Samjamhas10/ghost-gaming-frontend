@@ -10,7 +10,7 @@ function Header({
   searchLoading,
   searchError,
   searchPerformed,
-  handleSaveGame,
+  // handleSaveGame,
   closeSearchResultsModal,
 }) {
   return (
@@ -22,7 +22,7 @@ function Header({
           searchLoading={searchLoading}
           searchError={searchError}
           searchPerformed={searchPerformed}
-          handleSaveGame={handleSaveGame}
+          // handleSaveGame={handleSaveGame}
           closeSearchResultsModal={closeSearchResultsModal}
         />
       </div>

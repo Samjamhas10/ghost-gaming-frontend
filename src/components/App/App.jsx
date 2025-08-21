@@ -198,35 +198,36 @@ function App() {
   };
 
   // TODO: Implement save/unsave game functionality
-  const handleGameLike = (game) => {
-    console.log(game);
-    const isLiked = savedGames.some((savedGame) => savedGame.id === game.id);
-    if (!isLiked) {
-      api
-        .addGameLike(token, game.id)
-        .then(() => {
-          console.log("Saving game:", game.id);
-          // Handle successful like here
-          // update isLiked state
-        })
-        .catch((err) => {
-          console.error(err);
-          alert("Could not like game. Please try again");
-        });
-    } else {
-      api
-        .removeGameLike(token, game.id)
-        .then(() => {
-          console.log("Unsaving game:", game.id);
-          // Handle successful unlike here
-          // update isLiked state
-        })
-        .catch((err) => {
-          console.error(err);
-          alert("Could not unlike game. Please try again");
-        });
-    }
-  };
+  // const handleGameLike = (game) => {
+  //   console.log(game);
+  //   const isLiked = savedGames.some((savedGame) => savedGame.id === game.id);
+  //   if (!isLiked) {
+  //     api
+  //       .addGameLike(token, game)
+  //       .then(() => {
+  //         console.log("Saving game:", game.id);
+  //         // Handle successful like here
+  //         setSavedGames((prev) => [...prev, game]);
+  //         // update isLiked state
+  //       })
+  //       .catch((err) => {
+  //         console.error(err);
+  //         alert("Could not like game. Please try again");
+  //       });
+  //   } else {
+  //     api
+  //       .removeGameLike(token, game.id)
+  //       .then(() => {
+  //         console.log("Unsaving game:", game.id);
+  //         // Handle successful unlike here
+  //         // update isLiked state
+  //       })
+  //       .catch((err) => {
+  //         console.error(err);
+  //         alert("Could not unlike game. Please try again");
+  //       });
+  //   }
+  // };
 
   return (
     <BrowserRouter>
@@ -242,7 +243,7 @@ function App() {
             searchLoading={searchLoading}
             searchError={searchError}
             searchPerformed={searchPerformed}
-            handleSaveGame={handleGameLike}
+            // handleSaveGame={handleGameLike}
             closeSearchResultsModal={closeSearchResultsModal}
           />
           <Preloader isLoading={searchLoading} onSearch={handleSearch} />

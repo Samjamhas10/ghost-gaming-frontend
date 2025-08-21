@@ -62,36 +62,37 @@ function updateProfile({ token, username, bio, avatarUrl }) {
 }
 
 // TODO: implement api for handleGameLike
-function addGameLike(token, gameId) {
-  return fetch(`${BACKEND_URL}/save`, {
-    method: "PATCH",
-    headers: {
-      Accept: "application/json",
-      "Client-ID": CLIENT_ID,
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({ gameId }),
-  }).then(checkResponse);
-}
+// function addGameLike(token, game) {
+//   return fetch(`${BACKEND_URL}/save`, {
+//     method: "PUT",
+//     headers: {
+//       Accept: "application/json",
+//       "Client-Type": "application/json",
+//       "Client-ID": CLIENT_ID,
+//       Authorization: `Bearer ${token}`,
+//     },
+//     body: JSON.stringify({ game }),
+//   }).then(checkResponse);
+// }
 
-function removeGameLike(token, gameId) {
-  return fetch(`${BACKEND_URL}/${gameId}`, {
-    method: "DELETE",
-    headers: {
-      Accept: "application/json",
-      "Client-ID": CLIENT_ID,
-      Authorization: `Bearer ${token}`,
-    },
-  }).then(checkResponse);
-}
+// function removeGameLike(token, gameId) {
+//   return fetch(`${BACKEND_URL}/${gameId}`, {
+//     method: "DELETE",
+//     headers: {
+//       Accept: "application/json",
+//       "Client-ID": CLIENT_ID,
+//       Authorization: `Bearer ${token}`,
+//     },
+//   }).then(checkResponse);
+// }
 
 const api = {
   searchGames,
   getRecentlyPlayedGames,
   getSavedGames,
   updateProfile,
-  addGameLike,
-  removeGameLike,
+  // addGameLike,
+  // removeGameLike,
 };
 
 export default api;

@@ -145,16 +145,18 @@ function App() {
 
   const handleSignIn = ({ email, password }) => {
     if (!email || !password) {
-      return Promise.reject();
+      return Promise.reject("No authentication token");
     }
     authorize(email, password)
       .then((data) => {
         localStorage.setItem("token", data.token);
-        checkToken(data.token).then((userData) => {
-          setCurrentUser(userData);
-          setIsSignedIn(true);
-          closeActiveModal();
-        });
+        setToken(data.token);
+        return checkToken(data.token);
+      })
+      .then((userData) => {
+        setCurrentUser(userData);
+        setIsSignedIn(true);
+        closeActiveModal();
       })
       .catch(console.error);
   };

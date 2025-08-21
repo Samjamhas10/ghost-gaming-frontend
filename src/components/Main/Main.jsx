@@ -7,7 +7,7 @@ function Main({ data, isLoading }) {
   return (
     <main className="main">
       <div className="main__images">
-        <img src={mainGame} alt="Main Game" className="main__image" />
+        <img src={mainGame} alt="Main Image" className="main__image" />
         <img src={overlayImage} alt="Space Marine" className="overlay__image" />
       </div>
       <div className="main__content">

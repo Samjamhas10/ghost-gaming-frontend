@@ -20,7 +20,6 @@ function SearchBar({
 
   const closeSearchResults = () => {
     setQuery("");
-    // handleSearch("");
     closeSearchResultsModal();
   };
 
@@ -29,7 +28,8 @@ function SearchBar({
       {searchPerformed && !searchError && searchData.length > 0 && (
         <div
           className="search__overlay"
-          onClick={closeSearchResults} // TODO
+          onClick={closeSearchResults}
+          aria-hidden="true"
         ></div>
       )}
       <form className="search" onSubmit={handleSubmit}>
@@ -39,9 +39,13 @@ function SearchBar({
           aria-label="Search Games"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-        ></input>
-        <button type="submit" className="search__icon-button">
-          <img src={searchIcon} alt="search" />
+        />
+        <button
+          type="submit"
+          className="search__icon-button"
+          aria-label="Submit Search"
+        >
+          <img src={searchIcon} alt="Search Icon" />
         </button>
         {searchLoading && <Preloader searchLoading={searchLoading} />}
         {!searchLoading && searchError && (
@@ -55,28 +59,21 @@ function SearchBar({
           searchPerformed &&
           searchData.length === 0 && (
             <p className="search__error">Nothing Found</p>
-          )}{" "}
+          )}
         {searchPerformed && !searchError && searchData.length > 0 && (
           <ul className="search__results-overlay">
-            {!searchLoading &&
-              !searchError &&
-              searchData.length > 0 &&
-              searchData.map((game) => (
-                <li key={game.id} className="search__game-results">
-                  {/* TODO <div
-                    className="search__save-game"
-                    onClick={() => handleSaveGame(game)}
-                  ></div> */} 
-                  <h2 className="game__name">{game.name}</h2>
-                  {game.image && (
-                    <img
-                      src={game.image}
-                      alt="game image"
-                      className="game__image"
-                    />
-                  )}
-                </li>
-              ))}
+            {searchData.map((game) => (
+              <li key={game.id} className="search__game-results">
+                <h2 className="game__name">{game.name}</h2>
+                {game.image && (
+                  <img
+                    src={game.image}
+                    alt={`Image of ${game.name}`}
+                    className="game__image"
+                  />
+                )}
+              </li>
+            ))}
           </ul>
         )}
       </form>

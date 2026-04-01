@@ -8,7 +8,7 @@ function Navigation() {
         <li>
           <Link
             to="/"
-            className="nav__item nav__logo"
+            className="nav__item nav__item_type-logo"
             aria-label="Nav Logo"
           ></Link>
         </li>

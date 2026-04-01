@@ -9,7 +9,6 @@ function SearchBar({
   searchLoading,
   searchError,
   searchPerformed,
-  // handleSaveGame,
   closeSearchResultsModal,
 }) {
   const [query, setQuery] = useState(""); // store what is typed

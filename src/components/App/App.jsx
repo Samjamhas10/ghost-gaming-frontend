@@ -232,7 +232,7 @@ function App() {
   // };
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/ghost-gaming-frontend">
       <div className="app">
         <Navigation />
         <div className="app__column">

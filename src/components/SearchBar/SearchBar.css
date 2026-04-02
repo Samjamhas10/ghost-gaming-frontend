@@ -93,6 +93,20 @@
   margin: 10px;
 }
 
+.search__save-game {
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: #3dbda7;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.search__save-game.saved {
+  background-color: #ff6b6b;
+}
+
 @media screen and (max-width: 434px) {
   .search__results-overlay {
     min-width: 54vw;

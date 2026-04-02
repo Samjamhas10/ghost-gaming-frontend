@@ -13,6 +13,7 @@ function SearchBar({
   closeSearchResultsModal,
 }) {
   const [query, setQuery] = useState(""); // store what is typed
+  const [savedGames, setSavedGames] = useState([]); // store saved games
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -22,6 +23,34 @@ function SearchBar({
   const closeSearchResults = () => {
     setQuery("");
     closeSearchResultsModal();
+  };
+
+  const handleSaveGame = async (game) => {
+    try {
+      if (savedGames.includes(game.id)) {
+        // Unsave game
+        await fetch(`${process.env.REACT_APP_BACKEND_URL}/unsave`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ gameId: game.id }),
+        });
+        setSavedGames((prev) => prev.filter((id) => id !== game.id));
+      } else {
+        // Save game
+        await fetch(`${process.env.REACT_APP_BACKEND_URL}/save`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ gameId: game.id }),
+        });
+        setSavedGames((prev) => [...prev, game.id]);
+      }
+    } catch (error) {
+      console.error("Error saving/unsaving game:", error);
+    }
   };
 
   return (

@@ -2,6 +2,7 @@ import { useState } from "react";
 import Preloader from "../Preloader/Preloader";
 import "./SearchBar.css";
 import searchIcon from "../../assets/search-icon.svg";
+import { SEARCH_MESSAGES } from "../../utils/constants";
 
 function SearchBar({
   handleSearch,
@@ -49,16 +50,13 @@ function SearchBar({
         </button>
         {searchLoading && <Preloader searchLoading={searchLoading} />}
         {!searchLoading && searchError && (
-          <p className="search__error-data">
-            Sorry, something went wrong during the request. There may be a
-            connection issue or the server may be down. Please try again later.
-          </p>
+          <p className="search__error-data">{SEARCH_MESSAGES.SEARCH_ERROR}</p>
         )}
         {!searchLoading &&
           !searchError &&
           searchPerformed &&
           searchData.length === 0 && (
-            <p className="search__error">Nothing Found</p>
+            <p className="search__error">{SEARCH_MESSAGES.NOTHING_FOUND}</p>
           )}
         {searchPerformed && !searchError && searchData.length > 0 && (
           <ul className="search__results-overlay">

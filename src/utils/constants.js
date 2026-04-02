@@ -4,6 +4,12 @@ export const API_URL = import.meta.env.VITE_BACKEND_URL;
 export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 export const API_KEY = import.meta.env.VITE_API_KEY;
 
+export const SEARCH_MESSAGES = {
+  NOTHING_FOUND: "Nothing Found",
+  SEARCH_ERROR:
+    "Sorry, something went wrong during the request. There may be a connection issue or the server may be down. Please try again later.",
+};
+
 // const {BASE_URL} = https://api.igdb.com/v4;
 // export const Reviews = [
 //   {

@@ -41,6 +41,7 @@ function App() {
   // runs everytime the token changes
   useEffect(() => {
     if (token) {
+      setIsLoading(true); // start loading
       checkToken(token)
         .then((userData) => {
           setCurrentUser(userData);
@@ -51,6 +52,9 @@ function App() {
           alert("Session expired. Please log in again.");
           localStorage.removeItem("token");
           setIsSignedIn(false);
+        })
+        .finally(() => {
+          setIsLoading(false); // stop loading
         });
     }
   }, [token]);

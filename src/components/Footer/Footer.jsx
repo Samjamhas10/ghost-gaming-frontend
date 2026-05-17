@@ -6,28 +6,11 @@ function Footer() {
     <footer className="footer">
       <section className="footer__socials">
         <a
-          href="https://www.facebook.com"
-          target="_blank"
-          className="footer__icons"
-          aria-label="Facebook"
-        >
-          <FaFacebookF />
-          <span>Facebook</span>
-        </a>
-        <a
-          href="https://www.discord.com"
-          target="_blank"
-          className="footer__icons"
-          aria-label="Discord"
-        >
-          <FaDiscord />
-          <span>Discord</span>
-        </a>
-        <a
           href="https://www.youtube.com"
           target="_blank"
+          rel="noopener noreferrer"
           className="footer__icons"
-          aria-label="Youtube"
+          aria-label="Visit Ghost Games on Youtube"
         >
           <FaYoutube />
           <span>Youtube</span>
@@ -35,16 +18,17 @@ function Footer() {
         <a
           href="https://www.twitch.com"
           target="_blank"
+          rel="noopener noreferrer"
           className="footer__icons"
-          aria-label="Twitch"
+          aria-label="Visit Ghost Games on Twitch"
         >
           <FaTwitch />
           <span>Twitch</span>
         </a>
       </section>
-      <p className="footer__copyright">
-        @2025 Ghost Games. All rights reserved.
-      </p>
+      <small className="footer__copyright">
+        @{new Date().getFullYear()} Ghost Games. All rights reserved.
+      </small>
     </footer>
   );
 }

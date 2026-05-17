@@ -48,7 +48,9 @@ function App() {
         })
         .catch((err) => {
           console.error("Token validation failed:", err);
+          alert("Session expired. Please log in again.");
           localStorage.removeItem("token");
+          setIsSignedIn(false);
         });
     }
   }, [token]);
